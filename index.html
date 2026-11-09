@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAZ ACONTECER // Proxy Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --panel:#121216; --panel2:#18181d; --line:#26262d;
+  --y:#ffd400; --g:#b6ff00; --pink:#ff3d7f; --txt:#f4f4f4; --mut:#8f8f99;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.06;
+  background-image:radial-gradient(#fff 1px,transparent 1.2px);background-size:14px 14px}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 5vw;background:rgba(10,10,12,.82);backdrop-filter:blur(10px);border-bottom:2px solid var(--y)}
+.logo{font-family:'Anton';font-size:24px;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.logo span{background:var(--y);color:#000;padding:0 7px;transform:skew(-10deg);display:inline-block}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul a{font-family:'JetBrains Mono';font-size:13px;color:var(--mut);transition:.2s;position:relative}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--y);transition:.25s}
+nav ul a:hover{color:var(--y)} nav ul a:hover::after{width:100%}
+.status{font-family:'JetBrains Mono';font-size:12px;color:var(--g);display:flex;align-items:center;gap:8px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g);animation:pisca 1.2s infinite}
+@keyframes pisca{50%{opacity:.2}}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:40px;padding:120px 5vw 120px;position:relative;overflow:hidden}
+.tag{font-family:'JetBrains Mono';font-size:13px;color:#000;background:var(--g);display:inline-block;padding:5px 12px;transform:rotate(-2deg);margin-bottom:26px}
+.hero h1{font-family:'Anton';font-size:clamp(64px,10vw,170px);line-height:.86;text-transform:uppercase;letter-spacing:-1px}
+.hero h1 .l2{color:var(--y);display:block;transform:skew(-8deg);text-shadow:6px 6px 0 var(--pink);min-height:1.7em}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-t);position:absolute;inset:0}
+.glitch::before{color:var(--g);clip-path:inset(0 0 60% 0);animation:gl 3.2s infinite steps(1)}
+.glitch::after{color:var(--pink);clip-path:inset(60% 0 0 0);animation:gl 3.2s infinite reverse steps(1)}
+@keyframes gl{0%,90%,100%{transform:none}92%{transform:translate(-6px,2px)}94%{transform:translate(6px,-2px)}96%{transform:translate(-3px,0)}}
+.cursor{display:inline-block;width:.07em;height:.8em;background:var(--y);animation:pisca .8s infinite;margin-left:6px;vertical-align:baseline}
+.hero p{max-width:540px;font-size:19px;line-height:1.55;color:var(--mut);margin:30px 0 40px}
+.hero p b{color:var(--txt)}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{font-family:'Anton';font-size:21px;letter-spacing:1px;padding:15px 34px;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:.2s;display:inline-flex;align-items:center;gap:10px}
+.btn svg{width:22px;height:22px}
+.btn.p{background:var(--y);color:#000}
+.btn.p:hover{background:var(--g);transform:translateY(-3px)}
+.btn.s{color:var(--txt);box-shadow:inset 0 0 0 2px var(--txt)}
+.btn.s:hover{background:var(--txt);color:#000}
+
+/* painel lateral estilo HUD */
+.hud{position:relative;aspect-ratio:1;max-width:460px;justify-self:center;width:100%}
+.hud svg{width:100%;height:100%}
+.hud .spin{transform-origin:200px 200px;animation:gira 30s linear infinite}
+.hud .spin2{transform-origin:200px 200px;animation:gira 18s linear infinite reverse}
+@keyframes gira{to{transform:rotate(360deg)}}
+.hud-lbl{position:absolute;font-family:'JetBrains Mono';font-size:11px;background:var(--panel);border:1px solid var(--line);padding:6px 10px;color:var(--mut)}
+.hud-lbl b{color:var(--y)}
+
+.faixa{position:absolute;bottom:34px;left:-5%;width:110%;background:var(--y);color:#000;transform:rotate(-2.5deg);
+  font-family:'Anton';font-size:24px;padding:9px 0;white-space:nowrap;overflow:hidden;z-index:2}
+.faixa div{display:inline-block;animation:corre 22s linear infinite}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* SEÇÕES */
+section{padding:110px 5vw}
+.sec-h{display:flex;align-items:flex-end;gap:22px;margin-bottom:54px;flex-wrap:wrap}
+.sec-h .n{font-family:'Anton';font-size:96px;color:transparent;-webkit-text-stroke:2px var(--y);line-height:.8}
+.sec-h h2{font-family:'Anton';font-size:clamp(40px,6vw,74px);text-transform:uppercase;line-height:.9}
+.sec-h small{display:block;font-family:'JetBrains Mono';font-size:13px;color:var(--g);margin-bottom:8px}
+
+/* painéis de trabalho */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:2px solid var(--line);padding:30px;position:relative;transition:.3s;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)}
+.card::before{content:attr(data-n);position:absolute;right:18px;bottom:-14px;font-family:'Anton';font-size:120px;color:transparent;-webkit-text-stroke:1px var(--line);transition:.3s}
+.card::after{content:"";position:absolute;top:0;right:0;width:28px;height:28px;background:var(--y);clip-path:polygon(0 0,100% 100%,100% 0);transition:.3s}
+.card:hover{border-color:var(--y);transform:translateY(-6px)}
+.card:hover::before{-webkit-text-stroke-color:var(--y);opacity:.35}
+.ic{width:64px;height:64px;background:var(--y);color:#000;display:grid;place-items:center;margin-bottom:24px;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:.3s}
+.ic svg{width:34px;height:34px}
+.card:hover .ic{background:var(--g);transform:rotate(-6deg) scale(1.06)}
+.card h3{font-family:'Anton';font-size:30px;text-transform:uppercase;margin-bottom:10px;letter-spacing:.5px}
+.card p{color:var(--mut);line-height:1.55;position:relative}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative}
+.chips span{font-family:'JetBrains Mono';font-size:11px;border:1px solid var(--line);padding:4px 9px;color:var(--txt);background:rgba(255,255,255,.02)}
+.ex{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-family:'Anton';font-size:17px;color:var(--y);position:relative}
+.ex svg{width:16px;height:16px;transition:.2s}
+.ex:hover svg{transform:translateX(4px)}
+
+/* como funciona */
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:2px solid var(--line);background:var(--panel)}
+.passo{padding:36px 28px;border-right:2px solid var(--line);transition:.25s}
+.passo:hover{background:var(--panel2)}
+.passo:last-child{border-right:none}
+.passo .top{display:flex;justify-content:space-between;align-items:center}
+.passo b{font-family:'Anton';font-size:60px;color:var(--y);line-height:1}
+.passo svg{width:34px;height:34px;color:var(--g)}
+.passo h4{font-family:'Anton';font-size:26px;text-transform:uppercase;margin:14px 0 8px}
+.passo p{color:var(--mut);line-height:1.55}
+
+/* sobre */
+.sobre{display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
+.perfil{position:relative;transform:rotate(-3deg);transition:.3s}
+.perfil:hover{transform:rotate(0) scale(1.02)}
+.foto{position:relative;border:4px solid #000;outline:4px solid var(--y);box-shadow:14px 14px 0 var(--pink);overflow:hidden;aspect-ratio:1035/1144;
+  background:radial-gradient(circle at 50% 38%,#ffe45c 0,#ffd400 45%,#e0a800 100%)}
+.foto::before{content:"";position:absolute;inset:0;opacity:.22;background-image:radial-gradient(#000 1.4px,transparent 1.6px);background-size:11px 11px;
+  -webkit-mask:linear-gradient(180deg,transparent 20%,#000);mask:linear-gradient(180deg,transparent 20%,#000)}
+.foto img{position:relative;width:100%;height:100%;object-fit:cover;object-position:bottom;display:block;
+  filter:contrast(1.06) drop-shadow(0 0 1px #000) drop-shadow(-8px 6px 0 rgba(0,0,0,.35))}
+.foto::after{content:"FAZ ACONTECER";position:absolute;left:10px;top:8px;font-family:'Anton';font-size:15px;color:#000;letter-spacing:2px;opacity:.75}
+.selo2{position:absolute;top:58%;right:-34px;background:#000;color:var(--g);border:2px solid var(--g);font-family:'JetBrains Mono';font-weight:700;font-size:11px;padding:5px 9px;transform:rotate(-8deg)}
+.selo{position:absolute;bottom:-14px;right:-14px;background:var(--g);color:#000;font-family:'Anton';font-size:20px;padding:6px 14px;transform:rotate(6deg)}
+.sobre-txt h3{font-family:'Anton';font-size:clamp(40px,5vw,64px);text-transform:uppercase;line-height:1;margin-bottom:22px}
+.sobre-txt h3 span{color:var(--y)}
+.sobre-txt p{color:var(--mut);font-size:18px;line-height:1.6;margin-bottom:16px;max-width:640px}
+.stats{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+.stats div{background:var(--panel);border:2px solid var(--line);border-left:5px solid var(--y);padding:16px 22px;min-width:150px}
+.stats b{font-family:'Anton';font-size:44px;color:var(--y);display:block;line-height:1}
+.stats span{font-family:'JetBrains Mono';font-size:11px;color:var(--mut)}
+
+/* faq */
+.faq{display:grid;gap:12px;max-width:900px}
+.faq details{background:var(--panel);border:2px solid var(--line);transition:.2s}
+.faq details[open]{border-color:var(--y)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:'Anton';font-size:24px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:34px;color:var(--y);transition:.25s}
+.faq details[open] summary::after{transform:rotate(45deg);color:var(--pink)}
+.faq details p{padding:0 26px 24px;color:var(--mut);line-height:1.6;font-size:17px}
+
+/* contato */
+.cta{text-align:center;background:var(--y);color:#000;margin:0 5vw 80px;padding:100px 5vw;position:relative;overflow:hidden;
+  clip-path:polygon(0 30px,100% 0,100% calc(100% - 30px),0 100%)}
+.cta::before{content:"";position:absolute;inset:0;opacity:.13;background-image:radial-gradient(#000 1.3px,transparent 1.5px);background-size:12px 12px}
+.cta h2{font-family:'Anton';font-size:clamp(50px,9vw,130px);text-transform:uppercase;line-height:.9;position:relative}
+.cta p{font-size:20px;margin:22px 0 36px;position:relative}
+.cta .btn{background:#000;color:var(--y);position:relative}
+.cta .btn:hover{background:var(--pink);color:#fff}
+footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12px;color:var(--mut);border-top:1px solid var(--line)}
+
+.rv{opacity:0;transform:translateY(40px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hud{display:none}
+  .sobre{grid-template-columns:1fr;gap:44px}
+  .perfil{max-width:300px}
+}
+@media(max-width:600px){
+  section{padding:70px 6vw}
+  .hero{padding:110px 6vw 110px;min-height:auto}
+  .hero h1 .l2{min-height:1.1em}
+  .hero p{font-size:17px;margin:22px 0 30px}
+  .btns{flex-direction:column}
+  .btn{justify-content:center}
+  .sec-h{margin-bottom:34px;gap:14px}
+  .sec-h .n{font-size:64px}
+  .card{padding:24px}
+  .ic{width:54px;height:54px;margin-bottom:18px}
+  .card h3{font-size:26px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .stats div{min-width:0;padding:12px 10px}
+  .stats b{font-size:30px}
+  .stats span{font-size:9px}
+  .faq summary{font-size:19px;padding:18px 20px}
+  .cta{padding:80px 6vw}
+  nav ul{display:none}
+  .passo{border-right:none;border-bottom:2px solid var(--line)}
+  .faixa{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <svg viewBox="0 0 32 32" fill="none"><path d="M18 2 6 18h9l-2 12 13-17h-9l1-11Z" fill="#ffd400" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    FAZ<span>ACONTECER</span>
+  </div>
+  <ul>
+    <li><a href="#trabalhos">// TRABALHOS</a></li>
+    <li><a href="#como">// COMO FUNCIONA</a></li>
+    <li><a href="#sobre">// SOBRE</a></li>
+    <li><a href="#faq">// DÚVIDAS</a></li>
+    <li><a href="#contato">// CONTATO</a></li>
+  </ul>
+  <div class="status"><i></i>PROXY ONLINE</div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="tag">&gt; PROXY DIGITAL // ACEITANDO PEDIDOS</div>
+    <h1>
+      <span class="glitch" data-t="Você tem">Você tem</span><br>a ideia.
+      <span class="l2"><span id="type"></span><span class="cursor"></span></span>
+    </h1>
+    <p>Eu sou o <b>Proxy</b> que te guia pela internet. Site, bot, automação, inteligência artificial ou aquela ideia que ninguém sabe fazer: <b>se tem como fazer, eu faço acontecer.</b></p>
+    <div class="btns">
+      <a class="btn p" href="#contato">BORA COMEÇAR
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn s" href="#trabalhos">VER TRABALHOS</a>
+    </div>
+  </div>
+
+  <div class="hud">
+    <svg viewBox="0 0 400 400" fill="none">
+      <g class="spin"><circle cx="200" cy="200" r="180" stroke="#26262d" stroke-width="2" stroke-dasharray="4 10"/>
+        <path d="M200 20a180 180 0 0 1 155 90" stroke="#ffd400" stroke-width="4"/></g>
+      <g class="spin2"><circle cx="200" cy="200" r="140" stroke="#26262d" stroke-width="10" stroke-dasharray="60 30"/>
+        <path d="M60 200a140 140 0 0 1 40-98" stroke="#b6ff00" stroke-width="10"/></g>
+      <circle cx="200" cy="200" r="98" fill="#121216" stroke="#ffd400" stroke-width="3"/>
+      <path d="M212 120 160 210h38l-10 72 56-98h-38l6-64Z" fill="#ffd400" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M150 300h100" stroke="#ff3d7f" stroke-width="4"/>
+    </svg>
+    <div class="hud-lbl" style="top:8%;left:-4%">SINAL <b>100%</b></div>
+    <div class="hud-lbl" style="bottom:14%;right:-4%">MODO <b>FAZ TUDO</b></div>
+  </div>
+
+  <div class="faixa"><div>
+    SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★ SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★
+    SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★ SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★
+  </div></div>
+</header>
+
+<section id="trabalhos">
+  <div class="sec-h rv"><span class="n">01</span><div><small>// TIPOS DE TRABALHO</small><h2>O que eu faço</h2></div></div>
+  <div class="grid">
+
+    <div class="card rv" data-n="01">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="3" width="20" height="15" rx="1"/><path d="M2 7h20M8 21h8M12 18v3"/><path d="m9 11-2 2 2 2M15 11l2 2-2 2"/></svg></div>
+      <h3>Sites e Landing Pages</h3>
+      <p>Site pra negócio, portfólio ou página de vendas. Visual marcante, rápido e perfeito no celular.</p>
+      <div class="chips"><span>SITE INSTITUCIONAL</span><span>PORTFÓLIO</span><span>CARDÁPIO</span></div>
+      <a class="ex" href="https://witthene.github.io/barberinho-demo/" target="_blank">VER EXEMPLO
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="card rv" data-n="02">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M12 7V3M9 3h6"/><circle cx="9" cy="13" r="1.4" fill="currentColor"/><circle cx="15" cy="13" r="1.4" fill="currentColor"/><path d="M2 12v3M22 12v3M10 16.5h4"/></svg></div>
+      <h3>Bots</h3>
+      <p>Bots pra Discord, WhatsApp e jogos que respondem, avisam, organizam e trabalham sozinhos.</p>
+      <div class="chips"><span>DISCORD</span><span>WHATSAPP</span><span>JOGOS</span></div>
+    </div>
+
+    <div class="card rv" data-n="03">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M9 2v2M9 14v2M2 9h2M14 9h2M4 4l1.5 1.5M12.5 12.5 14 14M4 14l1.5-1.5M12.5 5.5 14 4"/><path d="M15 15l6 3-3 1-1 3-2-7Z" fill="currentColor"/></svg></div>
+      <h3>Automações</h3>
+      <p>Aquela tarefa repetitiva que come seu tempo vira um clique. Planilhas, cadastros, mensagens, rotinas no PC.</p>
+      <div class="chips"><span>PLANILHAS</span><span>SCRIPTS</span><span>ROTINAS</span></div>
+    </div>
+
+    <div class="card rv" data-n="04">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4L12 3Z" fill="currentColor"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8.8-2ZM5 15l.6 1.4L7 17l-1.4.6L5 19l-.6-1.4L3 17l1.4-.6L5 15Z"/></svg></div>
+      <h3>Inteligência Artificial</h3>
+      <p>Assistentes com voz e personalidade, atendimento automático e IA conectada ao seu sistema.</p>
+      <div class="chips"><span>ASSISTENTES</span><span>VOZ</span><span>ATENDIMENTO</span></div>
+    </div>
+
+    <div class="card rv" data-n="05">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L15 15H9l-1.6 1.8A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4Z"/><path d="M7 10.5v3M5.5 12h3"/><circle cx="16" cy="11" r="1" fill="currentColor"/><circle cx="18" cy="13" r="1" fill="currentColor"/></svg></div>
+      <h3>Mods e Jogos</h3>
+      <p>Tradução de jogos, mods personalizados e macros. Do jeito que você sempre quis jogar.</p>
+      <div class="chips"><span>TRADUÇÃO</span><span>MODS</span><span>MACROS</span></div>
+    </div>
+
+    <div class="card rv" data-n="06">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="14" width="18" height="7" rx="1"/><circle cx="7" cy="6.5" r="1" fill="currentColor"/><circle cx="7" cy="17.5" r="1" fill="currentColor"/><path d="M11 6.5h6M11 17.5h6"/></svg></div>
+      <h3>Servidores e Sistemas</h3>
+      <p>Servidor pra jogar com a galera, sistemas sob medida e integração entre ferramentas.</p>
+      <div class="chips"><span>SERVIDORES</span><span>SISTEMAS</span><span>INTEGRAÇÕES</span></div>
+    </div>
+
+    <div class="card rv" data-n="07">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/><circle cx="6" cy="10" r="1.3" fill="currentColor"/></svg></div>
+      <h3>OBS e Lives</h3>
+      <p>Configuração completa do OBS: cenas, overlays, alertas, áudio limpo e live sem travar.</p>
+      <div class="chips"><span>OBS</span><span>OVERLAYS</span><span>ALERTAS</span></div>
+    </div>
+
+    <div class="card rv" data-n="08">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 14a9 9 0 0 1 18 0"/><path d="M12 14l4-5"/><circle cx="12" cy="14" r="1.6" fill="currentColor"/><path d="M5 18h14"/></svg></div>
+      <h3>Otimização de PC</h3>
+      <p>PC lento ou jogo travando? Limpo, ajusto e deixo sua máquina voando, com mais FPS e menos dor de cabeça.</p>
+      <div class="chips"><span>MAIS FPS</span><span>LIMPEZA</span><span>DRIVERS</span></div>
+    </div>
+
+    <div class="card rv" data-n="09">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/><path d="M12 7v5M9.5 9.5 12 12l2.5-2.5"/></svg></div>
+      <h3>Formatação e Instalação</h3>
+      <p>Windows do zero, programas instalados, backup dos seus arquivos e tudo configurado do seu jeito.</p>
+      <div class="chips"><span>WINDOWS</span><span>BACKUP</span><span>PROGRAMAS</span></div>
+    </div>
+
+    <div class="card rv" data-n="10">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/><path d="M9 7.5h.01M15 7.5h.01" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <h3>Setup de VTuber</h3>
+      <p>Avatar 2D ou 3D configurado, rastreio de rosto, VTube Studio e integração com a live.</p>
+      <div class="chips"><span>VTUBE STUDIO</span><span>VROID</span><span>RASTREIO</span></div>
+    </div>
+
+    <div class="card rv" data-n="11">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.5-.5-.5-2.5 2.5-2.5Z"/></svg></div>
+      <h3>Suporte Técnico</h3>
+      <p>Erro estranho, programa que não abre, rede caindo. Resolvo, inclusive à distância.</p>
+      <div class="chips"><span>ACESSO REMOTO</span><span>ERROS</span><span>REDE</span></div>
+    </div>
+
+    <div class="card rv" data-n="??">
+      <div class="ic" style="background:var(--pink);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 9a3 3 0 1 1 4.5 2.6c-.9.5-1.5 1.2-1.5 2.2V15"/><path d="M12 19h.01" stroke-width="3.5"/></svg></div>
+      <h3>E muito mais</h3>
+      <p>Não achou o que precisa? Me conta a ideia. Se tem como fazer, eu faço acontecer.</p>
+      <a class="ex" href="#contato">ME CONTA
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<section id="como">
+  <div class="sec-h rv"><span class="n">02</span><div><small>// PROTOCOLO</small><h2>Como funciona</h2></div></div>
+  <div class="passos rv">
+    <div class="passo"><div class="top"><b>01</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+      <h4>Você conta</h4><p>Me manda a ideia do jeito que vier, sem formulário chato.</p></div>
+    <div class="passo"><div class="top"><b>02</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 3v2h6V3M9 10l2 2 4-4M9 16h6"/></svg></div>
+      <h4>Eu planejo</h4><p>Te mostro como vai ficar, o orçamento e o prazo.</p></div>
+    <div class="passo"><div class="top"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14.5 5.5l4 4L9 19H5v-4l9.5-9.5Z"/><path d="M12.5 7.5l4 4"/></svg></div>
+      <h4>Eu faço</h4><p>Você acompanha o progresso e pede ajustes no caminho.</p></div>
+    <div class="passo"><div class="top"><b>04</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
+      <h4>Aconteceu</h4><p>Entrego funcionando e continuo por perto se precisar.</p></div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="sec-h rv"><span class="n">03</span><div><small>// ARQUIVO DO PROXY</small><h2>Quem faz</h2></div></div>
+  <div class="sobre rv">
+    <div class="perfil">
+      <div class="foto"><img src="img/breno_recorte.png" alt="Breno"></div>
+      <div class="selo">PROXY #01</div>
+    </div>
+    <div class="sobre-txt">
+      <h3>Oi, eu sou o <span>Breno.</span></h3>
+      <p>Sou o famoso faz tudo da internet. Comecei resolvendo os problemas do meu próprio PC e nunca mais parei: hoje eu crio sites, bots, automações, assistentes de IA e deixo computadores e lives funcionando do jeito certo.</p>
+      <p>Meu trabalho é simples: você me traz uma ideia, mesmo que ainda esteja meio bagunçada, e eu descubro o caminho pra ela sair do papel.</p>
+      <div class="stats">
+        <div><b>12+</b><span>TIPOS DE SERVIÇO</span></div>
+        <div><b>100%</b><span>SOB MEDIDA</span></div>
+        <div><b>0</b><span>ENROLAÇÃO</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="sec-h rv"><span class="n">04</span><div><small>// DÚVIDAS</small><h2>Perguntas frequentes</h2></div></div>
+  <div class="faq rv">
+    <details><summary>Quanto custa?</summary><p>Depende do tamanho do pedido. Você me conta a ideia e eu te passo um orçamento certinho antes de começar, sem surpresa no final.</p></details>
+    <details><summary>Quanto tempo demora?</summary><p>Coisas simples, como otimizar um PC ou configurar o OBS, costumam sair no mesmo dia. Projetos maiores, como sites e sistemas, eu combino o prazo com você no orçamento.</p></details>
+    <details><summary>Precisa ser presencial?</summary><p>Quase nunca. A maior parte do trabalho dá pra fazer à distância, inclusive suporte e configuração por acesso remoto.</p></details>
+    <details><summary>E se eu quiser mudar algo depois?</summary><p>Tranquilo. Você acompanha tudo durante o processo e pode pedir ajustes. Depois de entregue, continuo disponível se precisar.</p></details>
+    <details><summary>Minha ideia é estranha demais. Rola?</summary><p>Essas são as melhores. Me conta que a gente vê junto se tem como fazer, e se tiver, eu faço acontecer.</p></details>
+  </div>
+</section>
+
+<div class="cta rv" id="contato">
+  <h2>Bora fazer<br>acontecer?</h2>
+  <p>Me chama, conta sua ideia e eu te passo o orçamento.</p>
+  <a class="btn" href="https://wa.me/5594992129894?text=Oi!%20Vi%20seu%20site%20e%20tenho%20uma%20ideia" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+    CHAMAR NO WHATSAPP</a>
+</div>
+
+<footer>FAZ ACONTECER © 2026 // PROXY DIGITAL // SE TEM COMO FAZER, EU FAÇO</footer>
+
+<script>
+const palavras=["Eu faço acontecer.","Eu programo.","Eu automatizo.","Eu resolvo."];
+let i=0,j=0,apagando=false;const el=document.getElementById('type');
+(function loop(){
+  const w=palavras[i];
+  el.textContent=w.slice(0,j);
+  if(!apagando&&j<w.length)j++;
+  else if(apagando&&j>0)j--;
+  else if(!apagando){apagando=true;return setTimeout(loop,1600)}
+  else{apagando=false;i=(i+1)%palavras.length}
+  setTimeout(loop,apagando?40:80);
+})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
