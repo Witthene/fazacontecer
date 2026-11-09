@@ -139,6 +139,60 @@ section{padding:110px 5vw}
 .faq details[open] summary::after{transform:rotate(45deg);color:var(--pink)}
 .faq details p{padding:0 26px 24px;color:var(--mut);line-height:1.6;font-size:17px}
 
+/* abertura TV */
+#boot{position:fixed;inset:0;z-index:2000;background:#000;display:grid;place-items:center;cursor:pointer;overflow:hidden}
+#boot canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+#boot.fim{animation:desliga .55s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes desliga{0%{clip-path:inset(0 0 0 0)}60%{clip-path:inset(49.6% 0 49.6% 0);filter:brightness(3)}100%{clip-path:inset(50% 50% 50% 50%);filter:brightness(5)}}
+.boot-c{position:relative;text-align:center;opacity:0;animation:liga .5s .5s forwards}
+@keyframes liga{0%{opacity:0;transform:scaleY(.02) scaleX(1.4)}60%{opacity:1;transform:scaleY(1.1)}100%{opacity:1;transform:none}}
+.boot-ch{position:fixed;top:24px;left:28px;font-family:'JetBrains Mono';color:var(--g);font-size:18px;text-shadow:0 0 8px var(--g)}
+.boot-logo{font-family:'Anton';font-size:clamp(40px,8vw,90px);display:flex;align-items:center;gap:14px;color:#fff;text-shadow:3px 0 var(--pink),-3px 0 #00d1ff}
+.boot-logo svg{width:1em;height:1em}
+.boot-logo span{background:var(--y);color:#000;padding:0 12px;transform:skew(-10deg);display:inline-block;text-shadow:none}
+.boot-bar{width:min(340px,70vw);height:10px;border:2px solid var(--y);margin:26px auto 12px;padding:2px}
+.boot-bar i{display:block;height:100%;width:0;background:var(--y);animation:carrega 1.3s .8s steps(12) forwards}
+@keyframes carrega{to{width:100%}}
+.boot-t{font-family:'JetBrains Mono';font-size:13px;color:var(--mut);letter-spacing:2px}
+.boot-skip{position:fixed;bottom:22px;right:26px;font-family:'JetBrains Mono';font-size:11px;color:#555}
+
+/* contador */
+.contador{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono';font-size:12px;color:var(--mut);
+  border:1px solid var(--line);background:var(--panel);padding:9px 14px}
+.contador i{width:8px;height:8px;background:var(--pink);border-radius:50%;box-shadow:0 0 10px var(--pink);animation:pisca 1s infinite}
+.contador b{font-family:'Anton';font-size:22px;color:var(--y);font-weight:400}
+
+/* monte seu pedido */
+.monta{background:var(--panel);border:2px solid var(--line);padding:40px;display:grid;gap:34px;max-width:1000px;
+  clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%)}
+.passo-f h4{font-family:'Anton';font-size:26px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.passo-f h4 b{background:var(--y);color:#000;width:36px;height:36px;display:grid;place-items:center;font-size:20px;font-weight:400}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts label{cursor:pointer}
+.opts input{display:none}
+.opts span{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:12px;font-weight:700;padding:10px 16px;border:2px solid var(--line);color:var(--mut);transition:.15s;user-select:none}
+.opts span:hover{border-color:var(--txt);color:var(--txt)}
+.opts input:checked+span{background:var(--y);border-color:var(--y);color:#000;transform:rotate(-1.5deg)}
+.monta textarea{width:100%;background:var(--bg);border:2px solid var(--line);color:var(--txt);font-family:'Space Grotesk';font-size:16px;padding:16px;resize:vertical;outline:none;transition:.2s}
+.monta textarea:focus{border-color:var(--y)}
+.monta-fim{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:26px}
+.resumo{color:var(--g);font-size:13px;font-family:'JetBrains Mono'}
+.monta button{border:none;cursor:pointer}
+.monta.treme{animation:treme .35s}
+@keyframes treme{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* mascote */
+#bot{position:fixed;right:22px;bottom:18px;z-index:60;width:96px;cursor:pointer;transition:transform .3s}
+#bot svg{width:100%;height:auto;animation:flutua 2.6s ease-in-out infinite;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.6))}
+#bot:hover{transform:scale(1.08) rotate(-4deg)}
+@keyframes flutua{50%{transform:translateY(-8px)}}
+#bot .olhos{transform-origin:60px 62px;animation:pisc 4s infinite}
+@keyframes pisc{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.balao{position:absolute;bottom:108%;right:10px;width:220px;background:#fff;color:#000;font-weight:700;font-size:14px;line-height:1.35;padding:12px 14px;
+  border:3px solid #000;box-shadow:5px 5px 0 var(--y);opacity:0;transform:translateY(10px) scale(.9);transition:.25s;pointer-events:none}
+.balao::after{content:"";position:absolute;bottom:-12px;right:30px;border:10px solid transparent;border-top-color:#000;border-bottom:0}
+.balao.on{opacity:1;transform:none}
+
 /* contato */
 .cta{text-align:center;background:var(--y);color:#000;margin:0 5vw 80px;padding:100px 5vw;position:relative;overflow:hidden;
   clip-path:polygon(0 30px,100% 0,100% calc(100% - 30px),0 100%)}
@@ -176,6 +230,10 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   .stats span{font-size:9px}
   .faq summary{font-size:19px;padding:18px 20px}
   .cta{padding:80px 6vw}
+  .monta{padding:24px}
+  .monta-fim .btn{width:100%}
+  #bot{width:70px;right:12px;bottom:12px}
+  .balao{width:190px;font-size:13px}
   nav ul{display:none}
   .passo{border-right:none;border-bottom:2px solid var(--line)}
   .faixa{font-size:18px}
@@ -183,6 +241,17 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
 </style>
 </head>
 <body>
+
+<div id="boot">
+  <canvas id="ruido"></canvas>
+  <div class="boot-ch">CH 01 // PROXY</div>
+  <div class="boot-c">
+    <div class="boot-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M18 2 6 18h9l-2 12 13-17h-9l1-11Z" fill="#ffd400" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/></svg>FAZ<span>ACONTECER</span></div>
+    <div class="boot-bar"><i></i></div>
+    <div class="boot-t">CONECTANDO AO PROXY...</div>
+  </div>
+  <div class="boot-skip">clique pra pular</div>
+</div>
 
 <nav>
   <div class="logo">
@@ -194,6 +263,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     <li><a href="#como">// COMO FUNCIONA</a></li>
     <li><a href="#sobre">// SOBRE</a></li>
     <li><a href="#faq">// DÚVIDAS</a></li>
+    <li><a href="#pedido">// PEDIDO</a></li>
     <li><a href="#contato">// CONTATO</a></li>
   </ul>
   <div class="status"><i></i>PROXY ONLINE</div>
@@ -212,6 +282,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn s" href="#trabalhos">VER TRABALHOS</a>
     </div>
+    <div class="contador" id="contador"><i></i><b id="cont-n">0</b> PEDIDOS ACEITOS ESTE MÊS</div>
   </div>
 
   <div class="hud">
@@ -373,12 +444,55 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   </div>
 </section>
 
+<section id="pedido">
+  <div class="sec-h rv"><span class="n">05</span><div><small>// NOVA COMISSÃO</small><h2>Monte seu pedido</h2></div></div>
+  <form class="monta rv" id="monta">
+    <div class="passo-f">
+      <h4><b>A</b> O que você precisa?</h4>
+      <div class="opts" id="opts"></div>
+    </div>
+    <div class="passo-f">
+      <h4><b>B</b> Conta a ideia</h4>
+      <textarea id="ideia" rows="4" placeholder="Ex: quero um site pra minha loja com catálogo e botão pro WhatsApp..."></textarea>
+    </div>
+    <div class="passo-f">
+      <h4><b>C</b> Pra quando?</h4>
+      <div class="opts" id="prazo">
+        <label><input type="radio" name="prazo" value="Sem pressa" checked><span>SEM PRESSA</span></label>
+        <label><input type="radio" name="prazo" value="Essa semana"><span>ESSA SEMANA</span></label>
+        <label><input type="radio" name="prazo" value="Pra ontem"><span>PRA ONTEM</span></label>
+      </div>
+    </div>
+    <div class="monta-fim">
+      <div class="resumo mono" id="resumo">&gt; nenhum serviço selecionado</div>
+      <button type="submit" class="btn p">ENVIAR PEDIDO
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </form>
+</section>
+
 <div class="cta rv" id="contato">
   <h2>Bora fazer<br>acontecer?</h2>
   <p>Me chama, conta sua ideia e eu te passo o orçamento.</p>
   <a class="btn" href="https://wa.me/5594992129894?text=Oi!%20Vi%20seu%20site%20e%20tenho%20uma%20ideia" target="_blank">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
     CHAMAR NO WHATSAPP</a>
+</div>
+
+<div id="bot">
+  <div class="balao" id="balao">Oi! Eu sou o Lorinho, o assistente do Proxy.</div>
+  <svg viewBox="0 0 120 130" fill="none">
+    <ellipse cx="60" cy="124" rx="30" ry="5" fill="#000" opacity=".5"/>
+    <path d="M44 100v16M76 100v16" stroke="#26262d" stroke-width="7" stroke-linecap="round"/>
+    <rect x="18" y="34" width="84" height="70" rx="24" fill="#b6ff00" stroke="#000" stroke-width="4"/>
+    <path d="M60 34c0-16 14-26 30-24-6 4-8 10-6 16" fill="#ffd400" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M60 34c-2-12 6-22 18-24" stroke="#00d1ff" stroke-width="5" stroke-linecap="round"/>
+    <rect x="28" y="46" width="64" height="34" rx="12" fill="#0a0a0c" stroke="#000" stroke-width="3"/>
+    <g class="olhos"><rect x="38" y="55" width="14" height="14" rx="3" fill="#ffd400"/><rect x="68" y="55" width="14" height="14" rx="3" fill="#ffd400"/></g>
+    <path d="M52 82l8 12 8-12Z" fill="#555a63" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M18 70c-10 4-12 16-6 22M102 70c10 4 12 16 6 22" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+    <path d="M18 70c-10 4-12 16-6 22M102 70c10 4 12 16 6 22" stroke="#b6ff00" stroke-width="2" stroke-linecap="round"/>
+  </svg>
 </div>
 
 <footer>FAZ ACONTECER © 2026 // PROXY DIGITAL // SE TEM COMO FAZER, EU FAÇO</footer>
@@ -397,6 +511,69 @@ let i=0,j=0,apagando=false;const el=document.getElementById('type');
 })();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+const WHATS='5594992129894';
+
+/* ===== abertura de TV (só na primeira visita da sessão) ===== */
+(function(){
+  const boot=document.getElementById('boot');
+  if(sessionStorage.getItem('viu')){boot.remove();return}
+  sessionStorage.setItem('viu',1);
+  const c=document.getElementById('ruido'),x=c.getContext('2d');
+  c.width=320;c.height=180;let vivo=true;
+  (function chiado(){
+    if(!vivo)return;
+    const img=x.createImageData(c.width,c.height);
+    for(let k=0;k<img.data.length;k+=4){const v=Math.random()*255;img.data[k]=img.data[k+1]=img.data[k+2]=v;img.data[k+3]=255}
+    x.putImageData(img,0,0);requestAnimationFrame(chiado);
+  })();
+  let saiu=false;
+  function sai(){if(saiu)return;saiu=true;boot.classList.add('fim');setTimeout(()=>{vivo=false;boot.remove()},600)}
+  boot.addEventListener('click',sai);setTimeout(sai,2500);
+})();
+
+/* ===== contador de pedidos (mude o número aqui) ===== */
+const PEDIDOS_MES=0;
+(function(){
+  const box=document.getElementById('contador');
+  if(!PEDIDOS_MES){box.style.display='none';return}
+  const n=document.getElementById('cont-n');let v=0;
+  const t=setInterval(()=>{v++;n.textContent=v;if(v>=PEDIDOS_MES)clearInterval(t)},60);
+})();
+
+/* ===== monte seu pedido ===== */
+const servicos=['Site','Bot','Automação','Inteligência Artificial','Mod / Jogo','Servidor','OBS / Live','Otimizar PC','Formatar PC','Setup VTuber','Suporte técnico','Outra coisa'];
+const opts=document.getElementById('opts');
+servicos.forEach(s=>opts.insertAdjacentHTML('beforeend',`<label><input type="checkbox" value="${s}"><span>${s.toUpperCase()}</span></label>`));
+const resumo=document.getElementById('resumo'),form=document.getElementById('monta');
+function marcados(){return [...opts.querySelectorAll('input:checked')].map(i=>i.value)}
+opts.addEventListener('change',()=>{const m=marcados();resumo.textContent=m.length?'> '+m.length+(m.length>1?' serviços':' serviço')+' na comissão':'> nenhum serviço selecionado'});
+form.addEventListener('submit',e=>{
+  e.preventDefault();const m=marcados();
+  if(!m.length){form.classList.remove('treme');void form.offsetWidth;form.classList.add('treme');fala('Marca pelo menos um serviço aí em cima!');return}
+  const ideia=document.getElementById('ideia').value.trim();
+  const prazo=form.querySelector('input[name=prazo]:checked').value;
+  const msg=`Oi! Vi o site Faz Acontecer e quero fazer um pedido.\n\n*Serviço:* ${m.join(', ')}\n*Prazo:* ${prazo}`+(ideia?`\n*Ideia:* ${ideia}`:'');
+  window.open('https://wa.me/'+WHATS+'?text='+encodeURIComponent(msg),'_blank');
+});
+
+/* ===== mascote Lorinho ===== */
+const balao=document.getElementById('balao');let tb;
+function fala(t,ms=4200){balao.textContent=t;balao.classList.add('on');clearTimeout(tb);tb=setTimeout(()=>balao.classList.remove('on'),ms)}
+const falas={
+  trabalhos:'Doze tipos de serviço. E se não tiver aqui, ele faz mesmo assim.',
+  como:'Quatro passos e pronto. Sem enrolação, prometo.',
+  sobre:'Esse aí é o meu chefe. Eu sou o mais bonito da dupla.',
+  faq:'Ficou com dúvida? Clica numa pergunta que ela abre.',
+  pedido:'Marca o que precisa que eu já levo o recado pro WhatsApp!',
+  contato:'Vai, chama ele! Ele responde, eu juro.'
+};
+const ditas=new Set();
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!ditas.has(e.target.id)){ditas.add(e.target.id);fala(falas[e.target.id])}}),{threshold:.35});
+Object.keys(falas).forEach(id=>{const el=document.getElementById(id);if(el)io2.observe(el)});
+const aleat=['Pi-pi! Sinal do Proxy estável.','Eu sou um papagaio robô. Sim, isso existe.','Clica em Monte seu pedido, é rapidinho!','Curioso? Eu também. Bora conversar?'];
+document.getElementById('bot').addEventListener('click',()=>fala(aleat[Math.floor(Math.random()*aleat.length)]));
+setTimeout(()=>fala('Oi! Eu sou o Lorinho, o assistente do Proxy.'),sessionStorage.getItem('viu')?3000:1200);
 </script>
 </body>
 </html>
