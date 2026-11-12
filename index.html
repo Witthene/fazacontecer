@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>FAZ ACONTECER // Proxy Digital</title>
 <meta name="description" content="Sites, bots, automações, inteligência artificial e aquela ideia que ninguém sabe fazer. Me conta a ideia que eu faço acontecer.">
-<meta name="theme-color" content="#ffd400">
+<meta name="theme-color" content="#0a0a0c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Faz Acontecer">
 <meta property="og:title" content="FAZ ACONTECER // Você tem a ideia, eu faço acontecer">
@@ -36,7 +36,7 @@ html,body{max-width:100%;overflow-x:hidden}
 img,svg,video,canvas{max-width:100%}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
-  padding:14px 5vw;background:rgba(10,10,12,.82);backdrop-filter:blur(10px);border-bottom:2px solid var(--y)}
+  padding:calc(14px + env(safe-area-inset-top)) max(5vw,env(safe-area-inset-right)) 14px max(5vw,env(safe-area-inset-left));background:rgba(10,10,12,.82);backdrop-filter:blur(10px);border-bottom:2px solid var(--y)}
 .logo{font-family:'Anton';font-size:24px;letter-spacing:1px;display:flex;align-items:center;gap:10px}
 .logo svg{width:30px;height:30px}
 .logo span{background:var(--y);color:#000;padding:0 7px;transform:skew(-10deg);display:inline-block}
@@ -310,7 +310,7 @@ section{padding:110px 5vw}
 ::-webkit-scrollbar-thumb{background:var(--line);border:2px solid var(--bg)}
 ::-webkit-scrollbar-thumb:hover{background:var(--y)}
 :focus-visible{outline:2px dashed var(--g);outline-offset:4px}
-#progresso{position:fixed;top:0;left:0;height:3px;width:0;z-index:51;background:linear-gradient(90deg,var(--y),var(--g),var(--pink));box-shadow:0 0 10px var(--y)}
+#progresso{position:fixed;top:env(safe-area-inset-top);left:0;height:3px;width:0;z-index:51;background:linear-gradient(90deg,var(--y),var(--g),var(--pink));box-shadow:0 0 10px var(--y)}
 nav ul a.ativo{color:var(--y)} nav ul a.ativo::after{width:100%}
 .sec-h{position:relative}
 .sec-h::after{content:"";flex:1;min-width:60px;height:10px;margin-bottom:12px;opacity:.5;
