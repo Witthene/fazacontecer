@@ -348,14 +348,16 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 #menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 #menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
 #menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:600px){
+@media(max-width:900px){
   #menu-btn{display:flex}
   nav .status{display:none}
-  nav ul{display:flex;position:fixed;top:68px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,10,12,.97);border-bottom:2px solid var(--y);
-    transform:translateY(-120%);visibility:hidden;transition:transform .3s,visibility .3s}
-  nav ul.aberto{transform:none;visibility:visible}
+  nav ul{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,10,12,.97);border-bottom:2px solid var(--y);
+    max-height:calc(100vh - 70px);overflow-y:auto;transform:translateY(-10px);opacity:0;visibility:hidden;transition:transform .3s,opacity .3s,visibility .3s}
+  nav ul.aberto{transform:none;opacity:1;visibility:visible}
   nav ul a{display:block;padding:16px 6vw;font-size:15px;border-top:1px solid var(--line)}
   nav ul a::after{display:none}
+}
+@media(max-width:600px){
   .abas{flex-wrap:nowrap}
   .abas button{font-size:15px;padding:10px 8px;gap:6px;white-space:nowrap;min-width:0}
   .abas button b{display:none}
@@ -481,7 +483,7 @@ html.calmo .rv{opacity:1;transform:none}
 /* mascote */
 #bot{position:fixed;right:22px;bottom:18px;z-index:60;width:96px;cursor:pointer;transition:transform .3s}
 #bot svg{width:100%;height:auto;animation:flutua 2.6s ease-in-out infinite;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.6))}
-#bot:hover{transform:scale(1.08) rotate(-4deg)}
+@media(hover:hover){#bot:hover{transform:scale(1.08) rotate(-4deg)}}
 @keyframes flutua{50%{transform:translateY(-8px)}}
 #bot .olhos{transform-origin:60px 62px;animation:pisc 4s infinite}
 @keyframes pisc{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
@@ -531,7 +533,6 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   .monta-fim .btn{width:100%}
   #bot{width:70px;right:12px;bottom:12px}
   .balao{width:190px;font-size:13px}
-  nav ul{display:none}
   .passo{border-right:none;border-bottom:2px solid var(--line)}
   .faixa{font-size:18px}
 }
