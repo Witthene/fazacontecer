@@ -1,9 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAZ ACONTECER // Proxy Digital</title>
+<meta name="description" content="Sites, bots, automações, inteligência artificial e aquela ideia que ninguém sabe fazer. Me conta a ideia que eu faço acontecer.">
+<meta name="theme-color" content="#ffd400">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Faz Acontecer">
+<meta property="og:title" content="FAZ ACONTECER // Você tem a ideia, eu faço acontecer">
+<meta property="og:description" content="Sites, bots, automações e IA sob medida. Orçamento antes de começar.">
+<meta property="og:image" content="https://fazacontecer.com.br/img/og.png">
+<meta property="og:url" content="https://fazacontecer.com.br/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M18 2 6 18h9l-2 12 13-17h-9l1-11Z%22 fill=%22%23ffd400%22 stroke=%22%23000%22 stroke-width=%221.5%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -65,7 +75,7 @@ nav ul a:hover{color:var(--y)} nav ul a:hover::after{width:100%}
 .hud-lbl{position:absolute;font-family:'JetBrains Mono';font-size:11px;background:var(--panel);border:1px solid var(--line);padding:6px 10px;color:var(--mut)}
 .hud-lbl b{color:var(--y)}
 
-.faixa{position:absolute;bottom:34px;left:-5%;width:110%;background:var(--y);color:#000;transform:rotate(-2.5deg);
+.faixa{position:absolute;bottom:0;left:0;width:100%;background:var(--y);color:#000;
   font-family:'Anton';font-size:24px;padding:9px 0;white-space:nowrap;overflow:hidden;z-index:2}
 .faixa div{display:inline-block;animation:corre 22s linear infinite}
 @keyframes corre{to{transform:translateX(-50%)}}
@@ -97,8 +107,158 @@ section{padding:110px 5vw}
 .ex svg{width:16px;height:16px;transition:.2s}
 .ex:hover svg{transform:translateX(4px)}
 
-/* como funciona */
-.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:2px solid var(--line);background:var(--panel)}
+/* oferta */
+#oferta{padding-bottom:20px}
+.oferta{display:grid;grid-template-columns:1.5fr 1fr;border:2px solid var(--y);background:linear-gradient(135deg,#17150a,var(--panel) 55%);position:relative;
+  clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% 100%,40px 100%,0 calc(100% - 40px))}
+.of-esq{padding:48px 44px}
+.of-selo{display:inline-block;background:var(--pink);color:#fff;font:700 12px 'JetBrains Mono';letter-spacing:2px;padding:5px 12px;transform:rotate(-2deg);margin-bottom:22px}
+.oferta h2{font-family:'Anton';font-size:clamp(40px,5vw,68px);text-transform:uppercase;line-height:.92;margin-bottom:18px}
+.oferta h2 span{color:var(--y)}
+.of-esq>p{color:var(--mut);font-size:17px;line-height:1.6;max-width:560px;margin-bottom:24px}
+.of-inclui{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.of-inclui li{display:flex;gap:10px;font-size:15px;line-height:1.4}
+.of-inclui li::before{content:"";flex:none;width:18px;height:18px;margin-top:1px;background:var(--g);clip-path:polygon(14% 44%,0 60%,40% 100%,100% 22%,86% 8%,40% 70%)}
+.of-dir{background:var(--y);color:#000;padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.of-dir small{font:700 12px 'JetBrains Mono';letter-spacing:2px}
+.of-preco{font-family:'Anton';font-size:clamp(64px,7vw,96px);line-height:1;margin:4px 0 22px}
+.of-paga{display:grid;grid-template-columns:1fr 1fr;border:2px solid #000;margin-bottom:24px}
+.of-paga div{padding:12px 14px}
+.of-paga div+div{border-left:2px solid #000;background:#000;color:var(--y)}
+.of-paga b{font-family:'Anton';font-size:28px;font-weight:400;display:block;line-height:1}
+.of-paga span{font:700 11px 'JetBrains Mono'}
+.of-dir .btn{background:#000;color:var(--y);justify-content:center;box-shadow:5px 5px 0 var(--pink)}
+.of-dir .btn:hover{background:var(--pink);color:#fff}
+.of-mini{font-size:13px;margin-top:16px;line-height:1.5;font-weight:500}
+@media(max-width:900px){.oferta{grid-template-columns:1fr}.of-inclui{grid-template-columns:1fr}.of-esq,.of-dir{padding:34px 26px}}
+
+/* projetos */.proj{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.proj .pj{grid-column:span 2}
+.lab-t{grid-column:1/-1;font-family:'JetBrains Mono';font-size:13px;color:var(--g);margin-top:22px;display:flex;align-items:center;gap:14px}
+.lab-t span{color:var(--mut)}
+.lab-t::after{content:"";flex:1;height:2px;background:var(--line)}
+.pj{position:relative;background:var(--panel);border:2px solid var(--line);padding:26px;display:flex;flex-direction:column;transition:.25s;overflow:hidden}
+.pj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
+.pj:hover{border-color:var(--c);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--c)}
+.proj .pj.grande{grid-column:span 3;background:linear-gradient(160deg,#1c1219,var(--panel) 60%)}
+.pj-arte{color:var(--c);height:90px;margin-bottom:18px;border:1px solid var(--line);display:grid;place-items:center;
+  background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(255,255,255,.02) 10px 20px)}
+.pj.grande .pj-arte{height:160px}
+.pj-arte svg{height:70%;width:auto}
+.pj-arte.foto{padding:0;overflow:hidden;place-items:stretch}
+.pj-arte.foto img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:.5s}
+.pj:hover .pj-arte.foto img{transform:scale(1.04)}
+.pj:hover .pj-arte svg{animation:gl .6s steps(1)}
+.pj-tag{font-family:'JetBrains Mono';font-size:11px;color:var(--c);letter-spacing:1px;margin-bottom:8px}
+.pj h3{font-family:'Anton';font-size:30px;text-transform:uppercase;line-height:1;margin-bottom:10px}
+.pj.grande h3{font-size:48px}
+.pj p{color:var(--mut);line-height:1.55;font-size:15px;flex:1}
+.pj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.pj-stack span{font-family:'JetBrains Mono';font-size:10px;padding:3px 8px;border:1px solid var(--line);color:var(--txt)}
+@media(max-width:1000px){.proj .pj,.proj .pj.grande{grid-column:span 3}}
+@media(max-width:600px){.proj .pj,.proj .pj.grande{grid-column:1/-1}}
+
+/* telas simuladas do laboratório */
+.pj-arte.sim{position:relative;overflow:hidden;height:130px;place-items:stretch;display:block}
+.sim-capri{background:linear-gradient(#5aa0e6,#9fd0ff)!important}
+.mc-chao{position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(#5c9e31 0 8px,#8a5a2b 8px);box-shadow:inset 0 -6px 0 rgba(0,0,0,.2)}
+.mc-ceu{position:absolute;top:14px;right:22px;width:26px;height:26px;background:#fff6b0;box-shadow:0 0 18px #fff6b0}
+.mc-balao{position:absolute;left:14px;top:14px;right:70px;background:rgba(0,0,0,.75);border:2px solid var(--g);padding:8px 10px;font:500 11px/1.35 'JetBrains Mono';color:#fff}
+.mc-balao b{display:block;color:var(--g);font-size:10px;margin-bottom:2px}
+.onda{display:flex;gap:3px;align-items:center;height:14px;margin-top:6px}
+.onda i{width:3px;background:var(--g);animation:fala 1s ease-in-out infinite}
+.onda i:nth-child(2n){animation-delay:.2s}.onda i:nth-child(3n){animation-delay:.4s}
+@keyframes fala{0%,100%{height:3px}50%{height:14px}}
+.sim-bot{background:#07070a!important}
+.sim-bot pre{margin:0;padding:12px 14px;font:500 11px/1.55 'JetBrains Mono';color:var(--mut);white-space:pre-wrap}
+.sim-bot .c{color:var(--y)} .sim-bot .g{color:var(--g)}
+.sim-bot .cur{animation:pisca .8s infinite;color:var(--y)}
+.sim-orby{background:radial-gradient(circle at 50% 120%,#1b2a14,#07070a 70%)!important}
+.estrelas-bg{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.3px);background-size:23px 19px;opacity:.25}
+.planeta{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d8ff6a,#7cc22a 55%,#3d6e12);box-shadow:0 0 24px rgba(182,255,0,.35);animation:gira 14s linear infinite}
+.casa{position:absolute;left:24px;top:-10px;width:16px;height:12px;background:var(--y);clip-path:polygon(50% 0,100% 40%,100% 100%,0 100%,0 40%)}
+.arvore{position:absolute;right:-6px;top:30px;width:12px;height:12px;border-radius:50%;background:#2f8f3a;box-shadow:0 0 0 2px #1d5a24}
+.orbita{position:absolute;left:50%;top:50%;width:110px;height:110px;margin:-55px 0 0 -55px;border:1px dashed rgba(255,255,255,.18);border-radius:50%;animation:gira 6s linear infinite reverse}
+.boneco{position:absolute;left:50%;top:-6px;width:10px;height:12px;margin-left:-5px;background:var(--pink);border-radius:4px 4px 2px 2px}
+
+/* trabalhos enxuto */.abas{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:26px;border:2px solid var(--line)}
+.abas button{background:var(--panel);color:var(--mut);border:none;border-right:2px solid var(--line);padding:20px 24px;cursor:pointer;text-align:left;
+  font:400 26px 'Anton';letter-spacing:.5px;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;transition:.2s;position:relative}
+.abas button:last-child{border-right:none}
+.abas button b{font-weight:400;font-size:34px;color:transparent;-webkit-text-stroke:1.5px var(--mut);grid-row:span 2;transition:.2s}
+.abas button small{font:500 11px 'JetBrains Mono';color:var(--mut);letter-spacing:.5px}
+.abas button:hover{color:var(--txt)}
+.abas button[aria-selected="true"]{background:var(--y);color:#000}
+.abas button[aria-selected="true"] b{-webkit-text-stroke-color:#000}
+.abas button[aria-selected="true"] small{color:#000}
+.abas button[aria-selected="true"]::after{content:"";position:absolute;left:50%;bottom:-12px;margin-left:-10px;border:10px solid transparent;border-top-color:var(--y);border-bottom:0}
+#grid-trab{grid-template-columns:repeat(2,1fr);gap:14px}
+#grid-trab .card{display:grid;grid-template-columns:52px 1fr;column-gap:20px;align-items:start;padding:24px 26px;animation:entra .35s both}
+#grid-trab .card[hidden]{display:none}
+#grid-trab .card::before{display:none}
+#grid-trab .card::after{width:18px;height:18px}
+#grid-trab .ic{width:52px;height:52px;margin:0;grid-row:span 2}
+#grid-trab .ic svg{width:28px;height:28px}
+#grid-trab .card h3{font-size:24px;margin-bottom:6px}
+#grid-trab .card p{font-size:15px}
+#grid-trab .chips{display:none}
+#grid-trab .preco{grid-column:2;margin-top:12px;font-family:'Anton';font-size:22px;color:var(--y);display:flex;align-items:baseline;gap:8px}
+#grid-trab .preco small{font:500 10px 'JetBrains Mono';color:var(--mut);letter-spacing:1px}
+.nota-preco{margin-top:18px;font-family:'JetBrains Mono';font-size:12px;color:var(--mut)}
+#grid-trab .card.mais{grid-column:1/-1;grid-template-columns:52px 1fr auto;align-items:center;border-style:dashed;background:transparent}
+#grid-trab .card.mais{clip-path:none;padding:22px 26px}
+#grid-trab .card.mais::after{display:none}
+#grid-trab .card.mais .ic{grid-column:1;grid-row:1/3}
+#grid-trab .card.mais h3{grid-column:2;grid-row:1}
+#grid-trab .card.mais p{grid-column:2;grid-row:2}
+#grid-trab .card.mais .ex{margin:0;grid-row:1/3;grid-column:3;align-self:center}
+@keyframes entra{from{opacity:0;transform:translateY(12px)}}
+@media(max-width:800px){.abas{grid-template-columns:1fr}.abas button{border-right:none;border-bottom:2px solid var(--line)}.abas button::after{display:none}#grid-trab{grid-template-columns:1fr}
+  #grid-trab .card.mais{grid-template-columns:52px 1fr}#grid-trab .card.mais .ex{grid-row:auto;grid-column:2;margin-top:10px}}
+
+/* serviços em lista estilo menu */
+.abas{display:flex;gap:8px;border:none;margin-bottom:22px;flex-wrap:wrap}
+.abas button{display:flex;align-items:center;gap:10px;border:2px solid var(--line)!important;background:transparent;padding:12px 20px;font-size:20px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.abas button b{font-size:20px;grid-row:auto}
+.abas button small{display:none}
+.abas button[aria-selected="true"]{border-color:var(--y)!important}
+.abas button[aria-selected="true"]::after{display:none}
+#grid-trab{display:block;border-top:2px solid var(--line)}
+#grid-trab .card{display:grid;grid-template-columns:44px minmax(180px,1fr) 2fr 150px 24px;gap:0 24px;align-items:center;padding:22px 18px;
+  background:none;border:none;border-bottom:2px solid var(--line);clip-path:none;transform:none;box-shadow:none;transition:background .2s,color .2s;position:relative}
+#grid-trab .card::after{display:none}
+#grid-trab .card::before{display:block;content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--y);transition:width .3s cubic-bezier(.2,.8,.2,1);z-index:0;-webkit-text-stroke:0;font-size:0}
+#grid-trab .card>*{position:relative;z-index:1}
+#grid-trab .card:hover::before{width:100%}
+#grid-trab .card:hover{background:none;transform:none}
+#grid-trab .ic{width:44px;height:44px;background:none;color:var(--y);grid-row:auto;clip-path:none;border:2px solid var(--line);transition:.2s}
+#grid-trab .ic svg{width:24px;height:24px}
+#grid-trab .card:hover .ic{color:#000;border-color:#000;transform:none;background:none}
+#grid-trab .card h3{margin:0;font-size:26px;transition:color .2s}
+#grid-trab .card p{font-size:15px;margin:0;transition:color .2s}
+#grid-trab .preco{grid-column:auto;margin:0;justify-content:flex-end;flex-direction:column;align-items:flex-end;gap:0;line-height:1.1}
+#grid-trab .card::marker{content:none}
+#grid-trab .card:hover h3,#grid-trab .card:hover p,#grid-trab .card:hover .preco,#grid-trab .card:hover .preco small{color:#000}
+#grid-trab .seta{color:var(--mut);font-family:'Anton';font-size:22px;transition:.2s}
+#grid-trab .card:hover .seta{color:#000;transform:translateX(4px)}
+#grid-trab .card.mais{grid-template-columns:44px 1fr auto;border:none;border-bottom:2px dashed var(--line);background:none;padding:22px 18px}
+#grid-trab .card.mais .ic{background:none;color:var(--pink);border-color:var(--pink)}
+#grid-trab .card.mais h3{grid-column:2;grid-row:1}
+#grid-trab .card.mais p{grid-column:2;grid-row:2;margin-top:4px}
+#grid-trab .card.mais::before{background:var(--pink)}
+#grid-trab .card.mais:hover h3,#grid-trab .card.mais:hover p,#grid-trab .card.mais:hover .ex{color:#fff}
+#grid-trab .card.mais:hover .ic{color:#fff;border-color:#fff}
+@media(max-width:900px){
+  #grid-trab .card{grid-template-columns:44px 1fr auto;gap:6px 16px;padding:18px 10px}
+  #grid-trab .card .ic{grid-row:1/3}
+  #grid-trab .card h3{grid-column:2}
+  #grid-trab .card p{grid-column:2/4;grid-row:2}
+  #grid-trab .preco{grid-column:3;grid-row:1}
+  #grid-trab .seta{display:none}
+  .abas button{flex:1;justify-content:center;font-size:17px;padding:10px 12px}
+}
+
+/* como funciona */.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border:2px solid var(--line);background:var(--panel)}
 .passo{padding:36px 28px;border-right:2px solid var(--line);transition:.25s}
 .passo:hover{background:var(--panel2)}
 .passo:last-child{border-right:none}
@@ -139,11 +299,78 @@ section{padding:110px 5vw}
 .faq details[open] summary::after{transform:rotate(45deg);color:var(--pink)}
 .faq details p{padding:0 26px 24px;color:var(--mut);line-height:1.6;font-size:17px}
 
+/* polimento geral */
+::selection{background:var(--y);color:#000}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line);border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--y)}
+:focus-visible{outline:2px dashed var(--g);outline-offset:4px}
+#progresso{position:fixed;top:0;left:0;height:3px;width:0;z-index:51;background:linear-gradient(90deg,var(--y),var(--g),var(--pink));box-shadow:0 0 10px var(--y)}
+nav ul a.ativo{color:var(--y)} nav ul a.ativo::after{width:100%}
+.sec-h{position:relative}
+.sec-h::after{content:"";flex:1;min-width:60px;height:10px;margin-bottom:12px;opacity:.5;
+  background:repeating-linear-gradient(-45deg,var(--y) 0 4px,transparent 4px 10px)}
+section:nth-of-type(even){background:linear-gradient(180deg,transparent,rgba(255,255,255,.012) 20%,rgba(255,255,255,.012) 80%,transparent)}
+.card:hover{box-shadow:8px 8px 0 rgba(255,212,0,.18)}
+.btn.p{box-shadow:5px 5px 0 #000}
+.btn:active{transform:translate(2px,2px)}
+.passo:hover b{color:var(--g);text-shadow:3px 3px 0 var(--pink)}
+.passo b{transition:.2s}
+.faq summary{transition:.2s}
+.faq summary:hover{color:var(--y);padding-left:32px}
+.stats div{transition:.2s}
+.stats div:hover{transform:translateY(-4px);border-left-color:var(--g)}
+footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:28px 5vw;background:var(--panel)}
+.f-logo{font-family:'Anton';font-size:20px;color:var(--txt);letter-spacing:1px}
+.f-logo b{background:var(--y);color:#000;padding:0 6px;font-weight:400;display:inline-block;transform:skew(-10deg)}
+.f-topo{color:var(--y);transition:.2s} .f-topo:hover{color:var(--g)}
+@media(max-width:600px){footer{justify-content:center;text-align:center}.sec-h::after{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* garantias */
+.garantias{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--line);border-bottom:2px solid var(--line);background:var(--panel)}
+.garantias div{display:flex;gap:14px;align-items:center;padding:26px 2.4vw;border-right:2px solid var(--line);transition:.2s}
+.garantias{padding:0 2.6vw}
+.garantias div:last-child{border-right:none}
+.garantias div:hover{background:var(--panel2)}
+.garantias svg{width:30px;height:30px;color:var(--y);flex:none}
+.garantias span{font-size:13px;color:var(--mut);line-height:1.4}
+.garantias b{display:block;font-family:'JetBrains Mono';font-size:12px;color:var(--txt);letter-spacing:1px;margin-bottom:3px}
+@media(max-width:900px){.garantias{grid-template-columns:1fr 1fr}.garantias div{padding:20px 5vw!important;border-bottom:2px solid var(--line)}}
+@media(max-width:600px){.garantias{grid-template-columns:1fr}.garantias div{border-right:none}}
+
+.aviso-lgpd{font-size:12px;color:var(--mut);margin-top:8px;max-width:440px}.aviso-lgpd a{color:var(--y);text-decoration:underline}
+/* acessibilidade */
+.pular{position:fixed;left:12px;top:-60px;z-index:3000;background:var(--y);color:#000;font-weight:700;padding:10px 16px;transition:top .2s}
+.pular:focus{top:12px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.f-links a:not(.f-topo){color:var(--mut);transition:.2s} .f-links a:not(.f-topo):hover{color:var(--y)}
+#a11y-btn{position:fixed;left:18px;bottom:18px;z-index:61;width:46px;height:46px;border:2px solid #000;background:var(--y);color:#000;cursor:pointer;
+  display:grid;place-items:center;box-shadow:4px 4px 0 #000;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+#a11y-btn svg{width:26px;height:26px}
+#a11y-btn:hover{background:var(--g)}
+#a11y{position:fixed;left:18px;bottom:76px;z-index:61;background:var(--panel);border:2px solid var(--y);box-shadow:6px 6px 0 #000;padding:16px;display:grid;gap:8px;min-width:210px}
+#a11y[hidden]{display:none}
+#a11y b{font-family:'JetBrains Mono';font-size:11px;letter-spacing:2px;color:var(--g);margin-bottom:4px}
+#a11y button{font:700 13px 'Space Grotesk';text-align:left;padding:10px 12px;background:var(--bg);color:var(--txt);border:2px solid var(--line);cursor:pointer}
+#a11y button:hover{border-color:var(--txt)}
+#a11y button[aria-pressed="true"]{background:var(--y);color:#000;border-color:var(--y)}
+html.fonte body{zoom:1.15}
+html.contraste{--mut:#e6e6e6;--line:#6a6a75;--panel:#000;--panel2:#000;--bg:#000}
+html.contraste body::before,html.contraste body::after{display:none}
+html.links a:not(.btn){text-decoration:underline!important;text-underline-offset:4px}
+html.calmo *,html.calmo *::before,html.calmo *::after{animation:none!important;transition:none!important}
+html.calmo .rv{opacity:1;transform:none}
+@media(max-width:600px){#a11y-btn{left:12px;bottom:12px;width:42px;height:42px}}
+
 /* abertura TV */
 #boot{position:fixed;inset:0;z-index:2000;background:#000;display:grid;place-items:center;cursor:pointer;overflow:hidden}
-#boot canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+#boot canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.12;animation:acalma 1.2s .4s forwards}
+@keyframes acalma{to{opacity:.04}}
+#boot::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,#000 100%)}
 #boot.fim{animation:desliga .55s cubic-bezier(.7,0,.3,1) forwards}
-@keyframes desliga{0%{clip-path:inset(0 0 0 0)}60%{clip-path:inset(49.6% 0 49.6% 0);filter:brightness(3)}100%{clip-path:inset(50% 50% 50% 50%);filter:brightness(5)}}
+@keyframes desliga{0%{clip-path:inset(0 0 0 0)}60%{clip-path:inset(49.6% 0 49.6% 0);filter:brightness(1.4)}100%{clip-path:inset(50% 50% 50% 50%);filter:brightness(1.6)}}
 .boot-c{position:relative;text-align:center;opacity:0;animation:liga .5s .5s forwards}
 @keyframes liga{0%{opacity:0;transform:scaleY(.02) scaleX(1.4)}60%{opacity:1;transform:scaleY(1.1)}100%{opacity:1;transform:none}}
 .boot-ch{position:fixed;top:24px;left:28px;font-family:'JetBrains Mono';color:var(--g);font-size:18px;text-shadow:0 0 8px var(--g)}
@@ -169,7 +396,8 @@ section{padding:110px 5vw}
 .passo-f h4 b{background:var(--y);color:#000;width:36px;height:36px;display:grid;place-items:center;font-size:20px;font-weight:400}
 .opts{display:flex;flex-wrap:wrap;gap:10px}
 .opts label{cursor:pointer}
-.opts input{display:none}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts input:focus-visible+span{outline:2px dashed var(--g);outline-offset:3px}
 .opts span{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:12px;font-weight:700;padding:10px 16px;border:2px solid var(--line);color:var(--mut);transition:.15s;user-select:none}
 .opts span:hover{border-color:var(--txt);color:var(--txt)}
 .opts input:checked+span{background:var(--y);border-color:var(--y);color:#000;transform:rotate(-1.5deg)}
@@ -180,6 +408,41 @@ section{padding:110px 5vw}
 .monta button{border:none;cursor:pointer}
 .monta.treme{animation:treme .35s}
 @keyframes treme{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* avaliações */
+.aval-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:34px;max-width:1000px}
+.aval{position:relative;background:var(--panel);border:2px solid var(--line);border-left:4px solid var(--y);padding:26px 26px 22px;transition:.2s;
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%)}
+.aval:hover{border-color:var(--y);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--pink)}
+.aval::before{content:"\201C";position:absolute;top:-14px;right:22px;font-family:'Anton';font-size:110px;color:var(--y);opacity:.12;line-height:1}
+.aval .st{color:var(--y);font-size:20px;letter-spacing:3px}
+.aval p{margin:12px 0 16px;line-height:1.55}
+.aval b{font-family:'JetBrains Mono';font-size:12px;color:var(--g)}
+.aval-vazio{grid-column:1/-1;display:flex;align-items:center;gap:16px;font-family:'JetBrains Mono';font-size:13px;color:var(--mut);
+  border:2px dashed var(--line);padding:22px 24px;background:repeating-linear-gradient(-45deg,transparent 0 14px,rgba(255,212,0,.03) 14px 28px)}
+.aval-vazio i{font-style:normal;background:var(--pink);color:#fff;font-weight:700;padding:4px 10px;letter-spacing:1px;white-space:nowrap}
+.aval-form{position:relative;border-color:#2e2e36}
+.aval-form::after{content:"FEEDBACK.EXE";position:absolute;top:14px;right:48px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:2px;color:var(--mut)}
+.aval-form .passo-f h4{font-size:24px}
+.estrelas{display:flex;gap:6px}
+.estrelas button{background:none;border:none;cursor:pointer;font-size:38px;color:var(--line);transition:.15s;line-height:1}
+.estrelas button.on{color:var(--y);text-shadow:0 0 12px rgba(255,212,0,.5)}
+.estrelas button:hover{transform:scale(1.15) rotate(-6deg)}
+.aval-campos{display:grid;grid-template-columns:1fr 2fr;gap:12px}
+@media(max-width:700px){.aval-campos{grid-template-columns:1fr}}
+.aval-campos textarea{width:100%;background:var(--bg);border:2px solid var(--line);color:var(--txt);font-family:'Space Grotesk';font-size:16px;padding:14px 16px;resize:vertical;outline:none;transition:.2s}
+.aval-campos textarea:focus{border-color:var(--y)}
+/* esconder mascote */
+#bot-x{position:absolute;top:-6px;left:-6px;width:24px;height:24px;border:2px solid #000;background:var(--pink);color:#fff;font:700 14px/1 'JetBrains Mono';
+  cursor:pointer;display:grid;place-items:center;opacity:0;transition:.2s;z-index:2}
+#bot:hover #bot-x{opacity:1}
+@media(hover:none){#bot-x{opacity:1}}
+#bot.fora{transform:translateX(150%)}
+#bot-volta{position:fixed;right:0;bottom:40px;z-index:60;background:var(--y);color:#000;border:none;font:700 11px 'JetBrains Mono';letter-spacing:1px;
+  padding:10px 8px;writing-mode:vertical-rl;cursor:pointer;transform:translateX(100%);transition:.3s;box-shadow:-4px 4px 0 #000}
+#bot-volta.on{transform:none}
+.aval-campos input{width:100%;background:var(--bg);border:2px solid var(--line);color:var(--txt);font-family:'Space Grotesk';font-size:16px;padding:14px 16px;outline:none}
+.aval-campos input:focus{border-color:var(--y)}
 
 /* mascote */
 #bot{position:fixed;right:22px;bottom:18px;z-index:60;width:96px;cursor:pointer;transition:transform .3s}
@@ -242,7 +505,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
 </head>
 <body>
 
-<div id="boot">
+<div id="boot" aria-hidden="true">
   <canvas id="ruido"></canvas>
   <div class="boot-ch">CH 01 // PROXY</div>
   <div class="boot-c">
@@ -250,20 +513,24 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     <div class="boot-bar"><i></i></div>
     <div class="boot-t">CONECTANDO AO PROXY...</div>
   </div>
-  <div class="boot-skip">clique pra pular</div>
+  <div class="boot-skip">clique ou aperte qualquer tecla pra pular</div>
 </div>
 
-<nav>
+<a class="pular" href="#trabalhos">Pular para o conteúdo</a>
+<nav aria-label="Menu principal">
   <div class="logo">
     <svg viewBox="0 0 32 32" fill="none"><path d="M18 2 6 18h9l-2 12 13-17h-9l1-11Z" fill="#ffd400" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/></svg>
     FAZ<span>ACONTECER</span>
   </div>
   <ul>
-    <li><a href="#trabalhos">// TRABALHOS</a></li>
+    <li><a href="#oferta">// OFERTA</a></li>
+    <li><a href="#projetos">// PROJETOS</a></li>
+    <li><a href="#trabalhos">// SERVIÇOS</a></li>
     <li><a href="#como">// COMO FUNCIONA</a></li>
     <li><a href="#sobre">// SOBRE</a></li>
     <li><a href="#faq">// DÚVIDAS</a></li>
     <li><a href="#pedido">// PEDIDO</a></li>
+  <li><a href="#avaliacoes">// AVALIAÇÕES</a></li>
     <li><a href="#contato">// CONTATO</a></li>
   </ul>
   <div class="status"><i></i>PROXY ONLINE</div>
@@ -280,12 +547,12 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     <div class="btns">
       <a class="btn p" href="#contato">BORA COMEÇAR
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn s" href="#trabalhos">VER TRABALHOS</a>
+      <a class="btn s" href="#projetos">VER PROJETOS</a>
     </div>
     <div class="contador" id="contador"><i></i><b id="cont-n">0</b> PEDIDOS ACEITOS ESTE MÊS</div>
   </div>
 
-  <div class="hud">
+  <div class="hud" aria-hidden="true">
     <svg viewBox="0 0 400 400" fill="none">
       <g class="spin"><circle cx="200" cy="200" r="180" stroke="#26262d" stroke-width="2" stroke-dasharray="4 10"/>
         <path d="M200 20a180 180 0 0 1 155 90" stroke="#ffd400" stroke-width="4"/></g>
@@ -299,96 +566,194 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     <div class="hud-lbl" style="bottom:14%;right:-4%">MODO <b>FAZ TUDO</b></div>
   </div>
 
-  <div class="faixa"><div>
+  <div class="faixa" aria-hidden="true"><div>
     SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★ SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★
     SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★ SITES ★ BOTS ★ AUTOMAÇÕES ★ INTELIGÊNCIA ARTIFICIAL ★ MODS ★ SERVIDORES ★
   </div></div>
 </header>
 
+<div class="garantias rv">
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3h6v4H9zM5 5h4M15 5h4v16H5V5"/><path d="m9 13 2 2 4-4"/></svg><span><b>ORÇAMENTO ANTES</b>Preço e prazo fechados antes de começar</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span><b>FEITO PRO CELULAR</b>Rápido e perfeito em qualquer tela</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>ACOMPANHAMENTO</b>Você vê o progresso e pede ajustes</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><span><b>SUPORTE DEPOIS</b>Entregue funcionando e com ajuda por perto</span></div>
+</div>
+
+<section id="oferta">
+  <div class="oferta rv">
+    <div class="of-esq">
+      <div class="of-selo">OFERTA PRINCIPAL</div>
+      <h2>Site pro seu negócio<br><span>pronto em 7 dias.</span></h2>
+      <p>Você me manda as informações e as fotos, eu entrego um site profissional no ar, feito sob medida e pronto pra receber clientes pelo WhatsApp.</p>
+      <ul class="of-inclui">
+        <li>Até 5 seções: início, serviços, sobre, fotos e contato</li>
+        <li>Perfeito no celular e rápido pra carregar</li>
+        <li>Botão de WhatsApp e localização no mapa</li>
+        <li>Ajuda pra registrar e ligar o seu domínio</li>
+        <li>Duas rodadas de ajustes inclusas</li>
+        <li>30 dias de suporte depois da entrega</li>
+      </ul>
+    </div>
+    <div class="of-dir">
+      <small>A PARTIR DE</small>
+      <div class="of-preco">R$ 400</div>
+      <div class="of-paga">
+        <div><b>50%</b><span>pra começar</span></div>
+        <div><b>50%</b><span>só quando você aprovar</span></div>
+      </div>
+      <a class="btn p" href="https://wa.me/5594992129894?text=Oi!%20Quero%20o%20site%20pronto%20em%207%20dias%20pro%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">QUERO MEU SITE
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="of-mini">Não gostou do resultado? Você não paga a segunda metade.<br>O prazo começa quando eu recebo todo o material.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="sec-h rv"><span class="n">★</span><div><small>// ARQUIVOS DO PROXY</small><h2>Projetos meus</h2></div></div>
+  <div class="proj rv" role="list">
+    <article class="pj grande" role="listitem" style="--c:var(--y)">
+      <div class="pj-arte foto"><img src="img/proj-proxy.jpg" alt="Tela da biblioteca do app Proxy, com filtros e a estante de animes e mangás" loading="lazy"></div>
+      <div class="pj-tag">APP // ANIMES E MANGÁS</div>
+      <h3>Proxy</h3>
+      <p>Rastreador e leitor de animes e mangás com visual urbano de anime, mascote que fala e reage, perfil com foto e banner, rede de amigos e login por e-mail ou Google. Um só código rodando no PC, no celular e na web.</p>
+      <div class="pj-stack"><span>FLUTTER</span><span>FIREBASE</span><span>WINDOWS</span><span>ANDROID</span><span>IOS</span><span>WEB</span></div>
+    </article>
+    <article class="pj grande" role="listitem" style="--c:var(--pink)">
+      <div class="pj-arte foto"><img src="img/proj-maidme.jpg" alt="Janela do Maid Me com a assistente Mika em estilo anime" loading="lazy" style="object-position:center 30%"></div>
+      <div class="pj-tag">IA // ASSISTENTE DE VOZ</div>
+      <h3>Maid Me</h3>
+      <p>Monte sua própria assistente: escolha nome, personalidade e voz, converse pelo microfone e deixe ela mexer no PC por você. Funciona com várias IAs, tem voz grátis, avatar de VTuber e um app com cara de aplicativo de verdade.</p>
+      <div class="pj-stack"><span>PYTHON</span><span>IA</span><span>VOZ</span><span>WINDOWS</span><span>LINUX</span></div>
+      <a class="ex" href="https://github.com/Witthene/maid-me" target="_blank" rel="noopener">VER NO GITHUB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </article>
+    <div class="lab-t" role="presentation">// LABORATÓRIO <span>projetos por diversão</span></div>
+    <article class="pj" role="listitem" style="--c:var(--g)">
+      <div class="pj-arte sim sim-capri" aria-hidden="true"><div class="mc-ceu"></div><div class="mc-chao"></div><div class="mc-balao"><b>Capri</b>Bora explorar aquela caverna? Eu vou na frente!<span class="onda"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+      <div class="pj-tag">MOD // MINECRAFT</div>
+      <h3>Capri em português</h3>
+      <p>Tradução completa de um mod de Minecraft pro português e uma ponte local que faz a personagem responder com voz própria, gerada por IA.</p>
+      <div class="pj-stack"><span>TRADUÇÃO</span><span>IA</span><span>VOZ</span></div>
+    </article>
+    <article class="pj" role="listitem" style="--c:var(--y)">
+      <div class="pj-arte sim sim-bot" aria-hidden="true"><pre><span class="c">&gt; madeira 16</span>
+[bot] indo até a árvore mais próxima...
+[bot] <span class="g">+16 tronco de carvalho</span>
+<span class="c">&gt; vem</span>
+[bot] a caminho, 12 blocos<span class="cur">_</span></pre></div>
+      <div class="pj-tag">BOT // MINECRAFT</div>
+      <h3>YuiBot</h3>
+      <p>Bot que entra no mundo de Minecraft e obedece ordens: corta madeira, minera, segue o jogador, cria itens e entrega o que pegou.</p>
+      <div class="pj-stack"><span>NODE.JS</span><span>MINEFLAYER</span></div>
+    </article>
+    <article class="pj" role="listitem" style="--c:var(--g)">
+      <div class="pj-arte sim sim-orby" aria-hidden="true"><div class="estrelas-bg"></div><div class="planeta"><div class="casa"></div><div class="arvore"></div></div><div class="orbita"><div class="boneco"></div></div></div>
+      <div class="pj-tag">JOGO // EM CONSTRUÇÃO</div>
+      <h3>Orby</h3>
+      <p>Rede social em 3D com mini-planetas, gravidade própria e voz por proximidade, no estilo aconchegante de Animal Crossing.</p>
+      <div class="pj-stack"><span>UNITY</span><span>C#</span><span>3D</span></div>
+    </article>
+  </div>
+</section>
+
 <section id="trabalhos">
   <div class="sec-h rv"><span class="n">01</span><div><small>// TIPOS DE TRABALHO</small><h2>O que eu faço</h2></div></div>
-  <div class="grid">
+  <div class="abas rv" role="tablist" aria-label="Categorias de serviço">
+    <button role="tab" aria-selected="true" data-cat="criar"><b>01</b>CRIAR<small>sites, bots, automação, IA</small></button>
+    <button role="tab" aria-selected="false" data-cat="jogos"><b>02</b>JOGOS E LIVES<small>mods, servidores, OBS, VTuber</small></button>
+    <button role="tab" aria-selected="false" data-cat="pc"><b>03</b>PC E SUPORTE<small>otimizar e resolver</small></button>
+  </div>
+  <div class="grid rv" id="grid-trab" role="list">
 
-    <div class="card rv" data-n="01">
+    <div class="card" data-n="01" data-cat="criar" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="3" width="20" height="15" rx="1"/><path d="M2 7h20M8 21h8M12 18v3"/><path d="m9 11-2 2 2 2M15 11l2 2-2 2"/></svg></div>
       <h3>Sites e Landing Pages</h3>
       <p>Site pra negócio, portfólio ou página de vendas. Visual marcante, rápido e perfeito no celular.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 400</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>SITE INSTITUCIONAL</span><span>PORTFÓLIO</span><span>CARDÁPIO</span></div>
-      <a class="ex" href="https://witthene.github.io/barberinho-demo/" target="_blank">VER EXEMPLO
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <div class="card rv" data-n="02">
+    <div class="card" data-n="02" data-cat="criar" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M12 7V3M9 3h6"/><circle cx="9" cy="13" r="1.4" fill="currentColor"/><circle cx="15" cy="13" r="1.4" fill="currentColor"/><path d="M2 12v3M22 12v3M10 16.5h4"/></svg></div>
       <h3>Bots</h3>
       <p>Bots pra Discord, WhatsApp e jogos que respondem, avisam, organizam e trabalham sozinhos.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 120</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>DISCORD</span><span>WHATSAPP</span><span>JOGOS</span></div>
     </div>
 
-    <div class="card rv" data-n="03">
+    <div class="card" data-n="03" data-cat="criar" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M9 2v2M9 14v2M2 9h2M14 9h2M4 4l1.5 1.5M12.5 12.5 14 14M4 14l1.5-1.5M12.5 5.5 14 4"/><path d="M15 15l6 3-3 1-1 3-2-7Z" fill="currentColor"/></svg></div>
       <h3>Automações</h3>
       <p>Aquela tarefa repetitiva que come seu tempo vira um clique. Planilhas, cadastros, mensagens, rotinas no PC.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 100</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>PLANILHAS</span><span>SCRIPTS</span><span>ROTINAS</span></div>
     </div>
 
-    <div class="card rv" data-n="04">
+    <div class="card" data-n="04" data-cat="criar" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4L12 3Z" fill="currentColor"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8.8-2ZM5 15l.6 1.4L7 17l-1.4.6L5 19l-.6-1.4L3 17l1.4-.6L5 15Z"/></svg></div>
       <h3>Inteligência Artificial</h3>
       <p>Assistentes com voz e personalidade, atendimento automático e IA conectada ao seu sistema.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 250</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>ASSISTENTES</span><span>VOZ</span><span>ATENDIMENTO</span></div>
     </div>
 
-    <div class="card rv" data-n="05">
+    <div class="card" data-n="05" data-cat="jogos" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L15 15H9l-1.6 1.8A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4Z"/><path d="M7 10.5v3M5.5 12h3"/><circle cx="16" cy="11" r="1" fill="currentColor"/><circle cx="18" cy="13" r="1" fill="currentColor"/></svg></div>
       <h3>Mods e Jogos</h3>
       <p>Tradução de jogos, mods personalizados e macros. Do jeito que você sempre quis jogar.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 80</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>TRADUÇÃO</span><span>MODS</span><span>MACROS</span></div>
     </div>
 
-    <div class="card rv" data-n="06">
+    <div class="card" data-n="06" data-cat="jogos" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="14" width="18" height="7" rx="1"/><circle cx="7" cy="6.5" r="1" fill="currentColor"/><circle cx="7" cy="17.5" r="1" fill="currentColor"/><path d="M11 6.5h6M11 17.5h6"/></svg></div>
       <h3>Servidores e Sistemas</h3>
       <p>Servidor pra jogar com a galera, sistemas sob medida e integração entre ferramentas.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 150</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>SERVIDORES</span><span>SISTEMAS</span><span>INTEGRAÇÕES</span></div>
     </div>
 
-    <div class="card rv" data-n="07">
+    <div class="card" data-n="07" data-cat="jogos" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/><circle cx="6" cy="10" r="1.3" fill="currentColor"/></svg></div>
       <h3>OBS e Lives</h3>
       <p>Configuração completa do OBS: cenas, overlays, alertas, áudio limpo e live sem travar.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 60</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>OBS</span><span>OVERLAYS</span><span>ALERTAS</span></div>
     </div>
 
-    <div class="card rv" data-n="08">
+    <div class="card" data-n="08" data-cat="pc" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 14a9 9 0 0 1 18 0"/><path d="M12 14l4-5"/><circle cx="12" cy="14" r="1.6" fill="currentColor"/><path d="M5 18h14"/></svg></div>
       <h3>Otimização de PC</h3>
       <p>PC lento ou jogo travando? Limpo, ajusto e deixo sua máquina voando, com mais FPS e menos dor de cabeça.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 40</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>MAIS FPS</span><span>LIMPEZA</span><span>DRIVERS</span></div>
     </div>
-
-    <div class="card rv" data-n="09">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/><path d="M12 7v5M9.5 9.5 12 12l2.5-2.5"/></svg></div>
-      <h3>Formatação e Instalação</h3>
-      <p>Windows do zero, programas instalados, backup dos seus arquivos e tudo configurado do seu jeito.</p>
-      <div class="chips"><span>WINDOWS</span><span>BACKUP</span><span>PROGRAMAS</span></div>
-    </div>
-
-    <div class="card rv" data-n="10">
+    <div class="card" data-n="10" data-cat="jogos" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/><path d="M9 7.5h.01M15 7.5h.01" stroke-width="3" stroke-linecap="round"/></svg></div>
       <h3>Setup de VTuber</h3>
       <p>Avatar 2D ou 3D configurado, rastreio de rosto, VTube Studio e integração com a live.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 80</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>VTUBE STUDIO</span><span>VROID</span><span>RASTREIO</span></div>
     </div>
 
-    <div class="card rv" data-n="11">
+    <div class="card" data-n="11" data-cat="pc" role="listitem">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.5-.5-.5-2.5 2.5-2.5Z"/></svg></div>
       <h3>Suporte Técnico</h3>
-      <p>Erro estranho, programa que não abre, rede caindo. Resolvo, inclusive à distância.</p>
+      <p>Erro estranho, programa que não abre, rede caindo. Resolvo tudo por acesso remoto, sem sair de casa.</p>
+      <div class="preco"><small>A PARTIR DE</small>R$ 30</div>
+      <span class="seta" aria-hidden="true">&rarr;</span>
       <div class="chips"><span>ACESSO REMOTO</span><span>ERROS</span><span>REDE</span></div>
     </div>
 
-    <div class="card rv" data-n="??">
+    <div class="card mais" data-n="??">
       <div class="ic" style="background:var(--pink);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 9a3 3 0 1 1 4.5 2.6c-.9.5-1.5 1.2-1.5 2.2V15"/><path d="M12 19h.01" stroke-width="3.5"/></svg></div>
       <h3>E muito mais</h3>
       <p>Não achou o que precisa? Me conta a ideia. Se tem como fazer, eu faço acontecer.</p>
@@ -397,6 +762,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     </div>
 
   </div>
+  <p class="nota-preco rv">&gt; valores de referência. O preço final depende do tamanho do pedido e sai fechado no orçamento, antes de começar.</p>
 </section>
 
 <section id="como">
@@ -426,8 +792,8 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
       <p>Sou o famoso faz tudo da internet. Comecei resolvendo os problemas do meu próprio PC e nunca mais parei: hoje eu crio sites, bots, automações, assistentes de IA e deixo computadores e lives funcionando do jeito certo.</p>
       <p>Meu trabalho é simples: você me traz uma ideia, mesmo que ainda esteja meio bagunçada, e eu descubro o caminho pra ela sair do papel.</p>
       <div class="stats">
-        <div><b>12+</b><span>TIPOS DE SERVIÇO</span></div>
-        <div><b>100%</b><span>SOB MEDIDA</span></div>
+        <div><b>10</b><span>TIPOS DE SERVIÇO</span></div>
+        <div><b>100%</b><span>ONLINE</span></div>
         <div><b>0</b><span>ENROLAÇÃO</span></div>
       </div>
     </div>
@@ -437,9 +803,9 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
 <section id="faq">
   <div class="sec-h rv"><span class="n">04</span><div><small>// DÚVIDAS</small><h2>Perguntas frequentes</h2></div></div>
   <div class="faq rv">
-    <details><summary>Quanto custa?</summary><p>Depende do tamanho do pedido. Você me conta a ideia e eu te passo um orçamento certinho antes de começar, sem surpresa no final.</p></details>
+    <details><summary>Quanto custa?</summary><p>Cada serviço tem um valor "a partir de" na seção de serviços. O preço final depende do tamanho do pedido: você me conta a ideia e eu te passo um orçamento fechado antes de começar, sem surpresa no final.</p></details>
     <details><summary>Quanto tempo demora?</summary><p>Coisas simples, como otimizar um PC ou configurar o OBS, costumam sair no mesmo dia. Projetos maiores, como sites e sistemas, eu combino o prazo com você no orçamento.</p></details>
-    <details><summary>Precisa ser presencial?</summary><p>Quase nunca. A maior parte do trabalho dá pra fazer à distância, inclusive suporte e configuração por acesso remoto.</p></details>
+    <details><summary>Precisa ser presencial?</summary><p>Não. Todo o trabalho é feito à distância, então dá pra atender você de qualquer lugar do Brasil. Suporte e configuração no seu PC são feitos por acesso remoto, com você acompanhando tudo.</p></details>
     <details><summary>E se eu quiser mudar algo depois?</summary><p>Tranquilo. Você acompanha tudo durante o processo e pode pedir ajustes. Depois de entregue, continuo disponível se precisar.</p></details>
     <details><summary>Minha ideia é estranha demais. Rola?</summary><p>Essas são as melhores. Me conta que a gente vê junto se tem como fazer, e se tiver, eu faço acontecer.</p></details>
   </div>
@@ -454,7 +820,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     </div>
     <div class="passo-f">
       <h4><b>B</b> Conta a ideia</h4>
-      <textarea id="ideia" rows="4" placeholder="Ex: quero um site pra minha loja com catálogo e botão pro WhatsApp..."></textarea>
+      <textarea id="ideia" rows="4" aria-label="Descreva sua ideia" placeholder="Ex: quero um site pra minha loja com catálogo e botão pro WhatsApp..."></textarea>
     </div>
     <div class="passo-f">
       <h4><b>C</b> Pra quando?</h4>
@@ -472,6 +838,26 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   </form>
 </section>
 
+<section id="avaliacoes">
+  <div class="sec-h rv"><span class="n">06</span><div><small>// RELATÓRIOS DE MISSÃO</small><h2>Avaliações</h2></div></div>
+  <div class="aval-lista rv" id="aval-lista"></div>
+  <form class="monta aval-form rv" id="aval-form">
+    <div class="passo-f">
+      <h4><b>★</b> Já fiz algo pra você? Conta como foi</h4>
+      <div class="estrelas" id="estrelas"></div>
+    </div>
+    <div class="aval-campos">
+      <input id="aval-nome" maxlength="40" aria-label="Seu nome" autocomplete="name" placeholder="Seu nome">
+      <textarea id="aval-txt" rows="3" aria-label="Texto da avaliação" maxlength="400" placeholder="O que eu fiz e o que achou do resultado..."></textarea>
+    </div>
+    <div class="monta-fim">
+      <div><div class="resumo mono" id="aval-res">&gt; escolha de 1 a 5 estrelas</div><p class="aviso-lgpd">Ao enviar, você autoriza publicar seu nome e avaliação no site. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p></div>
+      <button type="submit" class="btn p">ENVIAR AVALIAÇÃO
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </form>
+</section>
+
 <div class="cta rv" id="contato">
   <h2>Bora fazer<br>acontecer?</h2>
   <p>Me chama, conta sua ideia e eu te passo o orçamento.</p>
@@ -480,8 +866,10 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
     CHAMAR NO WHATSAPP</a>
 </div>
 
-<div id="bot">
-  <div class="balao" id="balao">Oi! Eu sou o Lorinho, o assistente do Proxy.</div>
+<button id="bot-volta" title="Chamar o Lorinho">LORINHO</button>
+<div id="bot" role="button" tabindex="0" aria-label="Lorinho, o mascote. Aperte para ouvir uma dica">
+  <button id="bot-x" title="Esconder o Lorinho">×</button>
+  <div class="balao" id="balao" role="status" aria-live="polite">Oi! Eu sou o Lorinho, o assistente do Proxy.</div>
   <svg viewBox="0 0 120 130" fill="none">
     <ellipse cx="60" cy="124" rx="30" ry="5" fill="#000" opacity=".5"/>
     <path d="M44 100v16M76 100v16" stroke="#26262d" stroke-width="7" stroke-linecap="round"/>
@@ -496,7 +884,15 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   </svg>
 </div>
 
-<footer>FAZ ACONTECER © 2026 // PROXY DIGITAL // SE TEM COMO FAZER, EU FAÇO</footer>
+<footer><span class="f-logo">FAZ <b>ACONTECER</b></span><span>© 2026 // PROXY DIGITAL // SE TEM COMO FAZER, EU FAÇO</span><span class="f-links"><a href="privacidade.html">PRIVACIDADE</a><a href="termos.html">TERMOS DE USO</a><a href="#" class="f-topo">▲ TOPO</a></span></footer>
+<button id="a11y-btn" aria-expanded="false" aria-controls="a11y" aria-label="Opções de acessibilidade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M4 8.5l8 1.5 8-1.5M12 10v5l-3 6M12 15l3 6"/></svg></button>
+<div id="a11y" role="dialog" aria-label="Acessibilidade" hidden>
+  <b>ACESSIBILIDADE</b>
+  <button data-op="fonte" aria-pressed="false">Texto maior</button>
+  <button data-op="contraste" aria-pressed="false">Alto contraste</button>
+  <button data-op="calmo" aria-pressed="false">Sem animações</button>
+  <button data-op="links" aria-pressed="false">Destacar links</button>
+</div>
 
 <script>
 const palavras=["Eu faço acontecer.","Eu programo.","Eu automatizo.","Eu resolvo."];
@@ -521,16 +917,17 @@ const WHATS='5594992129894';
   if(sessionStorage.getItem('viu')){boot.remove();return}
   sessionStorage.setItem('viu',1);
   const c=document.getElementById('ruido'),x=c.getContext('2d');
-  c.width=320;c.height=180;let vivo=true;
+  c.width=320;c.height=180;let vivo=true,fr=0;
   (function chiado(){
     if(!vivo)return;
+    if(fr++%4){requestAnimationFrame(chiado);return}
     const img=x.createImageData(c.width,c.height);
-    for(let k=0;k<img.data.length;k+=4){const v=Math.random()*255;img.data[k]=img.data[k+1]=img.data[k+2]=v;img.data[k+3]=255}
+    for(let k=0;k<img.data.length;k+=4){const v=Math.random()*120;img.data[k]=img.data[k+1]=img.data[k+2]=v;img.data[k+3]=255}
     x.putImageData(img,0,0);requestAnimationFrame(chiado);
   })();
   let saiu=false;
   function sai(){if(saiu)return;saiu=true;boot.classList.add('fim');setTimeout(()=>{vivo=false;boot.remove()},600)}
-  boot.addEventListener('click',sai);setTimeout(sai,2500);
+  boot.addEventListener('click',sai);addEventListener('keydown',sai,{once:true});setTimeout(sai,2500);
 })();
 
 /* ===== contador de pedidos (mude o número aqui) ===== */
@@ -543,7 +940,7 @@ const PEDIDOS_MES=0;
 })();
 
 /* ===== monte seu pedido ===== */
-const servicos=['Site','Bot','Automação','Inteligência Artificial','Mod / Jogo','Servidor','OBS / Live','Otimizar PC','Formatar PC','Setup VTuber','Suporte técnico','Outra coisa'];
+const servicos=['Site','Bot','Automação','Inteligência Artificial','Mod / Jogo','Servidor','OBS / Live','Otimizar PC','Setup VTuber','Suporte técnico','Outra coisa'];
 const opts=document.getElementById('opts');
 servicos.forEach(s=>opts.insertAdjacentHTML('beforeend',`<label><input type="checkbox" value="${s}"><span>${s.toUpperCase()}</span></label>`));
 const resumo=document.getElementById('resumo'),form=document.getElementById('monta');
@@ -558,22 +955,87 @@ form.addEventListener('submit',e=>{
   window.open('https://wa.me/'+WHATS+'?text='+encodeURIComponent(msg),'_blank');
 });
 
-/* ===== mascote Lorinho ===== */
-const balao=document.getElementById('balao');let tb;
+/* ===== barra de progresso e menu ativo ===== */
+document.body.insertAdjacentHTML('afterbegin','<div id="progresso"></div>');
+const prog=document.getElementById('progresso'),links=[...document.querySelectorAll('nav ul a')];
+addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+const io3=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('ativo',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+links.forEach(a=>{const el=document.querySelector(a.getAttribute('href'));if(el)io3.observe(el)});
+const heroEl=document.querySelector('.hero');if(heroEl)io3.observe(heroEl);
+
+/* ===== acessibilidade ===== */
+document.querySelectorAll('svg:not([aria-label])').forEach(s=>s.setAttribute('aria-hidden','true'));
+const a11yBtn=document.getElementById('a11y-btn'),a11y=document.getElementById('a11y');
+function abreA11y(s){a11y.hidden=!s;a11yBtn.setAttribute('aria-expanded',s);if(s)a11y.querySelector('button').focus()}
+a11yBtn.addEventListener('click',()=>abreA11y(a11y.hidden));
+a11y.querySelectorAll('button').forEach(b=>{
+  const op=b.dataset.op,salvo=localStorage.getItem('a11y-'+op)==='1';
+  document.documentElement.classList.toggle(op,salvo);b.setAttribute('aria-pressed',salvo);
+  b.addEventListener('click',()=>{const on=document.documentElement.classList.toggle(op);b.setAttribute('aria-pressed',on);localStorage.setItem('a11y-'+op,on?'1':'')});
+});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('calmo');
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!a11y.hidden){abreA11y(false);a11yBtn.focus()}});
+document.addEventListener('click',e=>{if(!a11y.hidden&&!a11y.contains(e.target)&&!a11yBtn.contains(e.target))abreA11y(false)});
+
+/* ===== abas de trabalhos ===== */
+const abas=[...document.querySelectorAll('.abas button')],cards=[...document.querySelectorAll('#grid-trab .card[data-cat]')];
+function abaAtiva(cat,foco){abas.forEach(b=>{const on=b.dataset.cat===cat;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;if(on&&foco)b.focus()});
+  cards.forEach(c=>c.hidden=c.dataset.cat!==cat)}
+abas.forEach((b,i)=>{b.addEventListener('click',()=>abaAtiva(b.dataset.cat));
+  b.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();abaAtiva(abas[(i+d+abas.length)%abas.length].dataset.cat,true)}})});
+abaAtiva('criar');
+
+/* ===== avaliações ===== */
+// só avaliações reais, aprovadas pelo Breno: {nome:'Fulano', nota:5, texto:'...'}
+const AVALIACOES=[];
+const lista=document.getElementById('aval-lista');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+lista.innerHTML=AVALIACOES.length
+  ?AVALIACOES.map(a=>`<div class="aval"><div class="st">${'★'.repeat(a.nota)}${'☆'.repeat(5-a.nota)}</div><p>${esc(a.texto)}</p><b>// ${esc(a.nome)}</b></div>`).join('')
+  :'<div class="aval-vazio"><i>SLOT LIVRE</i><span>&gt; nenhum relatório arquivado ainda. O primeiro pode ser o seu.</span></div>';
+let nota=0;const est=document.getElementById('estrelas'),avRes=document.getElementById('aval-res'),avForm=document.getElementById('aval-form');
+for(let i=1;i<=5;i++)est.insertAdjacentHTML('beforeend',`<button type="button" data-n="${i}" aria-label="${i} estrelas">★</button>`);
+est.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;nota=+b.dataset.n;
+  est.querySelectorAll('button').forEach(x=>{x.classList.toggle('on',+x.dataset.n<=nota);x.setAttribute('aria-pressed',+x.dataset.n===nota)});avRes.textContent='> nota '+nota+' de 5'});
+avForm.addEventListener('submit',e=>{
+  e.preventDefault();const nome=document.getElementById('aval-nome').value.trim(),txt=document.getElementById('aval-txt').value.trim();
+  if(!nota||!nome||!txt){avForm.classList.remove('treme');void avForm.offsetWidth;avForm.classList.add('treme');fala('Faltou estrela, nome ou o texto!');return}
+  const msg=`Oi! Quero deixar uma avaliação no site Faz Acontecer.\n\n*Nome:* ${nome}\n*Nota:* ${'★'.repeat(nota)} (${nota}/5)\n*Avaliação:* ${txt}`;
+  window.open('https://wa.me/'+WHATS+'?text='+encodeURIComponent(msg),'_blank');
+});
+
+/* ===== linha de serviço leva pro pedido ===== */
+cards.forEach(c=>{const s={'01':'Site','02':'Bot','03':'Automação','04':'Inteligência Artificial','05':'Mod / Jogo','06':'Servidor','07':'OBS / Live','08':'Otimizar PC','10':'Setup VTuber','11':'Suporte técnico'}[c.dataset.n];if(!s)return;
+  c.tabIndex=0;c.style.cursor='pointer';c.setAttribute('aria-label',c.querySelector('h3').textContent+'. Montar pedido com este serviço');
+  const vai=()=>{const i=opts.querySelector(`input[value="${s}"]`);if(i&&!i.checked){i.checked=true;opts.dispatchEvent(new Event('change'))}
+    document.getElementById('pedido').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('ideia').focus({preventScroll:true}),700)};
+  c.addEventListener('click',vai);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();vai()}})});
+
+/* ===== mascote Lorinho ===== */const balao=document.getElementById('balao');let tb;
 function fala(t,ms=4200){balao.textContent=t;balao.classList.add('on');clearTimeout(tb);tb=setTimeout(()=>balao.classList.remove('on'),ms)}
 const falas={
-  trabalhos:'Doze tipos de serviço. E se não tiver aqui, ele faz mesmo assim.',
+  trabalhos:'Dez tipos de serviço, tudo online. E se não tiver aqui, ele faz mesmo assim.',
   como:'Quatro passos e pronto. Sem enrolação, prometo.',
   sobre:'Esse aí é o meu chefe. Eu sou o mais bonito da dupla.',
   faq:'Ficou com dúvida? Clica numa pergunta que ela abre.',
   pedido:'Marca o que precisa que eu já levo o recado pro WhatsApp!',
+  oferta:'Sete dias e metade só no final. Até eu contrataria.',
+  projetos:'Tudo isso aqui ele fez. Eu ajudei moralmente.',
+  avaliacoes:'Aqui ficam os relatórios dos clientes. Tudo verdadeiro, eu fiscalizo!',
   contato:'Vai, chama ele! Ele responde, eu juro.'
 };
 const ditas=new Set();
 const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!ditas.has(e.target.id)){ditas.add(e.target.id);fala(falas[e.target.id])}}),{threshold:.35});
 Object.keys(falas).forEach(id=>{const el=document.getElementById(id);if(el)io2.observe(el)});
 const aleat=['Pi-pi! Sinal do Proxy estável.','Eu sou um papagaio robô. Sim, isso existe.','Clica em Monte seu pedido, é rapidinho!','Curioso? Eu também. Bora conversar?'];
-document.getElementById('bot').addEventListener('click',()=>fala(aleat[Math.floor(Math.random()*aleat.length)]));
+const bot=document.getElementById('bot'),volta=document.getElementById('bot-volta');
+function escondeBot(s){bot.classList.toggle('fora',s);volta.classList.toggle('on',s);if(s)balao.classList.remove('on');localStorage.setItem('loroFora',s?'1':'')}
+document.getElementById('bot-x').addEventListener('click',e=>{e.stopPropagation();escondeBot(true)});
+volta.addEventListener('click',()=>{escondeBot(false);fala('Voltei! Sentiu saudade, né?')});
+if(localStorage.getItem('loroFora'))escondeBot(true);
+bot.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();bot.click()}});
+const _fala=fala;fala=(t,ms)=>{if(!bot.classList.contains('fora'))_fala(t,ms)};
+bot.addEventListener('click',()=>fala(aleat[Math.floor(Math.random()*aleat.length)]));
 setTimeout(()=>fala('Oi! Eu sou o Lorinho, o assistente do Proxy.'),sessionStorage.getItem('viu')?3000:1200);
 </script>
 </body>
