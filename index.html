@@ -540,7 +540,133 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
   .passo{border-right:none;border-bottom:2px solid var(--line)}
   .faixa{font-size:18px}
 }
-</style>
+.sim-planta{background:radial-gradient(circle at 28% 50%,#1d3b17 0,#0c130b 55%,#070907 100%)}
+.sim-planta::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:18px 18px}
+.pl-luz{position:absolute;left:12%;top:-40%;width:180px;height:180%;background:linear-gradient(90deg,transparent,#a3e63522,transparent);transform:rotate(18deg)}
+.pl-mira{position:absolute;left:9%;top:50%;transform:translateY(-50%);width:120px;height:120px;display:grid;place-items:center}
+.pl-mira svg{width:74px;height:74px;filter:drop-shadow(0 0 14px #facc1566);animation:plgira 18s linear infinite}
+.pl-mira i{position:absolute;width:18px;height:18px;border:3px solid var(--g)}
+.pl-mira i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}.pl-mira i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.pl-mira i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}.pl-mira i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.pl-mira b{position:absolute;bottom:-18px;white-space:nowrap;font:700 9px 'JetBrains Mono',monospace;color:#0b0b0b;background:var(--g);padding:2px 6px}
+.pl-cel{position:absolute;right:8%;top:14px;width:132px;height:250px;border-radius:22px;background:#0f0f0f;border:2px solid #333;padding:6px;box-shadow:0 20px 40px #000a,0 0 0 1px #000;transform:rotate(-6deg);transition:.5s}
+.pj:hover .pl-cel{transform:rotate(-2deg) translateY(-6px)}
+.pl-tela{height:100%;border-radius:16px;background:#f8fafc;padding:14px 10px;color:#0f172a;font-family:'Space Grotesk',sans-serif}
+.pl-tela small{font-size:7px;font-weight:700;color:#16a34a;letter-spacing:1px}
+.pl-tela h4{font-size:19px;margin:2px 0 0;font-weight:800;line-height:1}.pl-tela em{font-size:8px;color:#64748b}
+.pl-chips{display:grid;gap:4px;margin-top:8px}.pl-chips span{background:#fff;border:1px solid #e2e8f0;border-radius:7px;font-size:8.5px;font-weight:700;padding:4px 6px}
+.pl-chips .ok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
+.pl-btn{margin-top:8px;background:#16a34a;color:#fff;border-radius:9px;text-align:center;font-weight:800;font-size:10px;padding:7px}
+@keyframes plgira{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.pl-mira svg{animation:none}}.pj-arte.sim::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 40px #000a;z-index:5}
+.pj-arte.sim>*{transition:transform .5s}
+.sim-capri{background:linear-gradient(#3f86d6,#8ec5ff 70%,#cfe8ff)!important}
+.mc-ceu{border-radius:2px}
+.mc-nuvem{position:absolute;top:22px;left:58%;width:44px;height:10px;background:#fff;box-shadow:10px -8px 0 -1px #fff,24px 0 0 #fff;opacity:.9;animation:nuv 22s linear infinite}
+.mc-nuvem.n2{top:46px;left:20%;transform:scale(.7);opacity:.7;animation-duration:30s}
+.mc-morro{position:absolute;left:0;right:0;bottom:30px;height:40px;background:#3f7d23;clip-path:polygon(0 100%,0 60%,10% 60%,10% 30%,22% 30%,22% 50%,38% 50%,38% 10%,52% 10%,52% 45%,70% 45%,70% 25%,84% 25%,84% 55%,100% 55%,100% 100%);opacity:.75}
+.mc-chao{background:linear-gradient(#5c9e31 0 8px,#8a5a2b 8px)!important;background-image:linear-gradient(90deg,#0002 1px,transparent 1px),linear-gradient(#5c9e31 0 8px,#8a5a2b 8px)!important;background-size:12px 100%,100% 100%!important}
+.mc-capri{position:absolute;right:26px;bottom:32px;width:16px;animation:pula 2.4s ease-in-out infinite}
+.mc-capri .cab{display:block;width:16px;height:16px;background:#f5d0a9;border-top:6px solid #f472b6;box-sizing:border-box}
+.mc-capri .corpo{display:block;width:16px;height:22px;background:linear-gradient(#ec4899 0 60%,#1e3a8a 60%)}
+.mc-balao{backdrop-filter:blur(4px);background:rgba(8,10,8,.78)!important;border-radius:2px;box-shadow:4px 4px 0 #000a;z-index:2}
+.sim-bot{background:linear-gradient(#0d0d12,#060608)!important;border-color:#2a2a33!important}
+.term-bar{display:flex;align-items:center;gap:5px;height:22px;padding:0 10px;background:#16161d;border-bottom:1px solid #2a2a33;font:500 9px 'JetBrains Mono';color:#777}
+.term-bar i{width:8px;height:8px;border-radius:50%;background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:8px}.term-bar b{margin-left:auto;color:var(--g);font-weight:700;animation:pisca 2s infinite}
+.sim-bot pre{padding:8px 14px!important;font-size:10.5px!important}
+.inv{position:absolute;right:10px;bottom:10px;display:flex;gap:3px;z-index:6}
+.inv i{width:20px;height:20px;background:#8b8b8b;border:2px solid;border-color:#fff8 #3338 #3338 #fff8;position:relative}
+.inv i.tr::after{content:"";position:absolute;inset:3px;background:linear-gradient(90deg,#6b4423 30%,#8a5a2b 30% 70%,#6b4423 70%)}
+.inv i.pd::after{content:"";position:absolute;inset:3px;background:#9ca3af;box-shadow:inset 3px 3px 0 #6b7280}
+.sim-orby{background:radial-gradient(circle at 50% 55%,#1b2f12,#07070a 65%)!important}
+.estrelas-bg{animation:brilha 4s ease-in-out infinite}
+.estrelas-bg.e2{background-size:37px 29px;background-position:9px 7px;opacity:.4;animation-delay:2s}
+.atmos{position:absolute;left:50%;top:50%;width:100px;height:100px;margin:-50px 0 0 -50px;border-radius:50%;background:radial-gradient(circle,#b6ff0033,transparent 65%)}
+.anel{position:absolute;left:50%;top:50%;width:150px;height:36px;margin:-18px 0 0 -75px;border-radius:50%;border:2px solid #facc1555;transform:rotate(-14deg);box-shadow:0 0 12px #facc1522}
+.lua{position:absolute;right:18%;top:22%;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c4b5fd 60%,#6d28d9);box-shadow:0 0 10px #c4b5fd88}
+.planeta{box-shadow:inset -10px -8px 16px #0006,0 0 28px rgba(182,255,0,.35)!important}
+.pj:hover .pj-arte.sim .planeta,.pj:hover .pj-arte.sim .mc-capri{animation-play-state:running}
+.pj:hover .pj-arte.sim .anel{transform:rotate(-8deg) scale(1.06)}
+@keyframes nuv{from{translate:-120px}to{translate:120px}}
+@keyframes pula{0%,80%,100%{translate:0}90%{translate:0 -8px}}
+@keyframes brilha{50%{opacity:.12}}
+@media(prefers-reduced-motion:reduce){.mc-nuvem,.mc-capri,.estrelas-bg{animation:none}}.mk{perspective:900px}
+.mk-proxy{background:radial-gradient(circle at 75% 60%,#3a2a05,#0a0907 65%)!important}
+.mk-maid{background:radial-gradient(circle at 70% 40%,#3b0f2a,#0a070a 65%)!important}
+.mk-grade{position:absolute;inset:0;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:20px 20px;mask:linear-gradient(90deg,#000,transparent 80%)}
+.mk-jan{position:absolute;background:#111;border:1px solid #ffffff22;border-radius:8px;overflow:hidden;box-shadow:0 24px 50px #000c,0 0 0 1px #000,0 0 40px color-mix(in srgb,var(--c) 25%,transparent);transition:transform .6s}
+.mk-proxy .mk-jan{right:-4%;top:22px;width:68%;transform:rotateY(-16deg) rotateX(6deg)}
+.mk-maid .mk-jan{right:8%;top:14px;width:118px;transform:rotate(4deg)}
+.pj:hover .mk-proxy .mk-jan{transform:rotateY(-6deg) rotateX(2deg) translateY(-4px)}
+.pj:hover .mk-maid .mk-jan{transform:rotate(1deg) translateY(-6px)}
+.mk-bar{display:flex;align-items:center;gap:4px;height:16px;padding:0 7px;background:#1b1b22;border-bottom:1px solid #ffffff14}
+.mk-bar i{width:6px;height:6px;border-radius:50%;background:#ff5f57}.mk-bar i:nth-child(2){background:#febc2e}.mk-bar i:nth-child(3){background:#28c840}
+.mk-bar em{margin-left:6px;font:500 8px 'JetBrains Mono';color:#888;font-style:normal}
+.mk-jan img{display:block;width:100%;height:auto}
+.mk-selos{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:grid;gap:6px;z-index:2}
+.mk-selos span{font:700 10px 'JetBrains Mono';letter-spacing:1px;color:#0b0b0b;background:var(--c);padding:4px 9px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%);box-shadow:3px 3px 0 #000}
+.mk-selos span:nth-child(2){margin-left:12px}.mk-selos span:nth-child(3){margin-left:24px}
+.mk-chat{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:52%;display:grid;gap:6px;z-index:2;font:500 10.5px/1.35 'Space Grotesk',sans-serif}
+.mk-chat p{margin:0;padding:6px 10px;border-radius:10px;max-width:90%}
+.mk-chat .eu{justify-self:end;background:#ffffff14;color:#ddd;border-bottom-right-radius:2px}
+.mk-chat .ela{background:var(--c);color:#0b0b0b;font-weight:700;border-bottom-left-radius:2px;box-shadow:0 6px 20px color-mix(in srgb,var(--c) 40%,transparent)}
+.mk-chat .onda i{background:var(--c)}
+@media(max-width:600px){.mk-chat{width:48%;font-size:9.5px}.mk-selos span{font-size:8.5px}}.mk-barba{background:radial-gradient(circle at 75% 60%,#0f2e14,#070907 65%)!important}
+.mk-barba .mk-jan{right:-4%;top:22px;width:66%;transform:rotateY(-16deg) rotateX(6deg)}
+.pj:hover .mk-barba .mk-jan{transform:rotateY(-6deg) rotateX(2deg) translateY(-4px)}
+.mk-foto{position:relative}.mk-foto img{filter:brightness(.45)}
+.mk-hero{position:absolute;left:10%;top:50%;transform:translateY(-50%);display:grid;gap:4px;justify-items:start}
+.mk-hero b{font:400 30px/1 'Anton',sans-serif;color:#fff;letter-spacing:1px}
+.mk-hero small{font:700 8px 'Space Grotesk',sans-serif;color:#ddd;letter-spacing:1px}.mk-hero u{color:#4ade80;text-decoration:none}
+.mk-hero span{margin-top:4px;background:#22c55e;color:#04140a;font:800 8px 'Space Grotesk';padding:4px 10px;border-radius:3px}.proj .pj.destaque{grid-column:1/-1;display:grid;grid-template-columns:1.25fr 1fr;column-gap:32px;align-items:start;border-color:#22c55e66;background:linear-gradient(135deg,#0b1a0e,var(--panel) 55%);box-shadow:0 0 0 1px #22c55e33,0 20px 60px #22c55e14}
+.pj.destaque .pj-arte{grid-row:1/span 7;height:100%;min-height:300px;margin:0}
+.pj.destaque .mk-jan{width:72%;top:40px}
+.pj.destaque .mk-hero b{font-size:44px}.pj.destaque .mk-hero small{font-size:10px}.pj.destaque .mk-hero span{font-size:10px;padding:6px 14px}
+.dq-selo{justify-self:start;margin:6px 0 4px;font:700 11px 'JetBrains Mono';letter-spacing:1px;color:#04140a;background:#22c55e;padding:5px 10px;clip-path:polygon(0 0,100% 0,95% 100%,0 100%);animation:pisca 2.5s infinite}
+.pj.destaque h3{font-size:56px}
+.dq-fatos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0 14px}
+.dq-fatos div{border:1px solid var(--line);padding:10px;background:#ffffff05}
+.dq-fatos b{display:block;font:400 22px 'Anton',sans-serif;color:#4ade80}.dq-fatos span{font-size:12px;color:var(--mut)}
+@media(max-width:1000px){.proj .pj.destaque{grid-template-columns:1fr}.pj.destaque .pj-arte{grid-row:auto;min-height:220px;margin-bottom:18px}.pj.destaque h3{font-size:44px}}
+@media(max-width:600px){.dq-fatos{grid-template-columns:1fr}.pj.destaque .mk-hero b{font-size:28px}}.mk-pagina{overflow:hidden;background:#0a0a0a}
+.pj.destaque .mk-pagina{height:250px}
+.mk-rola{display:block;width:100%;animation:bbrola 40s ease-in-out infinite alternate}
+.pj:hover .mk-rola{animation-play-state:paused}
+.bb-sec{padding:12px 14px;border-top:1px solid #ffffff10;font-family:'Space Grotesk',sans-serif}
+.bb-sec h5{margin:0 0 8px;font:400 15px 'Anton',sans-serif;letter-spacing:1px;color:#fff}.bb-sec h5 u{color:#4ade80;text-decoration:none}
+.bb-serv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.bb-serv div{background:#151515;border-radius:4px;overflow:hidden;font-size:8px;color:#ccc}
+.bb-serv img{width:100%;height:46px;object-fit:cover;display:block}.bb-serv b{display:block;padding:4px 5px 0;color:#fff}.bb-serv u{display:block;padding:0 5px 5px;color:#4ade80;text-decoration:none;font-weight:700}
+.bb-planos{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.bb-planos div{border:1px solid #ffffff1a;border-radius:4px;padding:8px;color:#aaa;font-size:8px}
+.bb-planos .pr{border-color:#22c55e;background:#22c55e12}
+.bb-planos small{display:block;color:#4ade80;font-weight:700;letter-spacing:1px;font-size:7px}.bb-planos b{font:400 18px 'Anton',sans-serif;color:#fff}
+.bb-ad{display:grid;grid-template-columns:1fr 1fr;gap:4px}.bb-ad img{width:100%;height:70px;object-fit:cover;border-radius:4px}
+.bb-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.bb-gal img{width:100%;height:46px;object-fit:cover;border-radius:3px}
+@keyframes bbrola{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 250px))}}
+@media(prefers-reduced-motion:reduce){.mk-rola{animation:none}}.pj.tem-caso{cursor:pointer}
+.pj.tem-caso h3::after{content:" ↗";font-size:.45em;color:var(--c);vertical-align:super;opacity:.7}
+.pj.tem-caso:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+#caso{margin:auto;width:min(1100px,94vw);max-height:90vh;padding:0;border:1px solid var(--line);background:var(--panel,#0e0e10);color:#eee;display:none;grid-template-columns:1.1fr 1fr;overflow:auto}
+#caso[open]{display:grid;animation:csin .3s ease-out}
+#caso::backdrop{background:#000c;backdrop-filter:blur(4px)}
+.cs-x{position:absolute;right:12px;top:10px;z-index:3;background:#000a;color:#fff;border:1px solid var(--line);width:36px;height:36px;cursor:pointer;font-size:16px}
+.cs-midia{display:flex;gap:12px;padding:18px;background:#070707;align-items:flex-start;justify-content:center;min-height:320px}
+.cs-midia>.pj-arte{width:100%;height:100%;min-height:320px;margin:0}
+.cs-img{flex:1;border:1px solid #ffffff1a;border-radius:8px;overflow:hidden;max-height:70vh}
+.cs-img img{width:100%;display:block}
+.cs-img.rola{overflow-y:auto}.cs-img.cel{flex:0 0 38%;border-radius:20px;border:4px solid #222}
+.cs-img.alta{flex:0 0 55%}
+.cs-txt{padding:30px 28px}
+.cs-txt h3{font:400 44px/1 'Anton',sans-serif;margin:6px 0 10px}
+.cs-res{color:#ccc;font-size:16px}
+.cs-blocos{display:grid;gap:14px;margin:18px 0}
+.cs-blocos b{font:700 12px 'JetBrains Mono';color:var(--y);letter-spacing:1px;text-transform:uppercase}
+.cs-blocos p{margin:4px 0 0;color:var(--mut);line-height:1.55}
+.cs-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@keyframes csin{from{opacity:0;transform:translateY(16px)}}
+@media(max-width:800px){#caso[open]{grid-template-columns:1fr}.cs-midia{min-height:0}.cs-img.rola{max-height:50vh}}</style>
 </head>
 <body>
 
@@ -649,17 +775,26 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
 </section>
 
 <section id="projetos">
-  <div class="sec-h rv"><span class="n">★</span><div><small>// ARQUIVOS DO PROXY</small><h2>Projetos meus</h2></div></div>
+  <div class="sec-h rv"><span class="n">★</span><div><small>// ARQUIVOS DO PROXY · CLIQUE PRA VER O CASE</small><h2>Meus projetos</h2></div></div>
   <div class="proj rv" role="list">
+    <article class="pj grande destaque" role="listitem" style="--c:var(--g)">
+      <div class="pj-arte sim mk mk-barba"><div class="mk-grade"></div><div class="mk-selos"><span>SITE</span><span>PAINEL DO DONO</span><span>CELULAR</span></div><div class="mk-jan"><div class="mk-bar"><i></i><i></i><i></i><em>barbeirinho</em></div><div class="mk-pagina"><img class="mk-rola" src="img/proj-barbeirinho-pagina.jpg" alt="Página inteira do site da Barbearia Barbeirinho: topo, serviços, planos, galeria, antes e depois e agendamento" loading="lazy"></div></div></div>
+      <div class="pj-tag">SITE // CLIENTE REAL</div><div class="dq-selo">★ PROJETO EM DESTAQUE · NO AR</div>
+      <h3>Barbearia Barbeirinho</h3>
+      <p>Site completo pra uma barbearia de verdade: fotos do ambiente, serviços, planos, promoção e agendamento. O dono ganhou um painel próprio pra trocar preços e fotos sozinho, sem depender de ninguém.</p>
+      <div class="pj-stack"><span>HTML</span><span>CSS</span><span>JS</span><span>CLOUDFLARE</span></div>
+      <div class="dq-fatos"><div><b>100%</b><span>sob medida</span></div><div><b>Painel</b><span>o dono edita sozinho</span></div><div><b>Celular</b><span>feito pra tela pequena</span></div></div>
+      <a class="ex" href="https://witthene.github.io/barberinho-demo/" target="_blank" rel="noopener">VER O SITE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </article>
     <article class="pj grande" role="listitem" style="--c:var(--y)">
-      <div class="pj-arte pj-foto"><img src="img/proj-proxy.jpg" alt="Tela da biblioteca do app Proxy, com filtros e a estante de animes e mangás" loading="lazy"></div>
+      <div class="pj-arte sim mk mk-proxy"><div class="mk-grade"></div><div class="mk-selos"><span>WINDOWS</span><span>ANDROID</span><span>WEB</span></div><div class="mk-jan"><div class="mk-bar"><i></i><i></i><i></i><em>proxy</em></div><img src="img/proj-proxy.jpg" alt="Tela da biblioteca do app Proxy, com filtros e a estante de animes e mangás" loading="lazy"></div></div>
       <div class="pj-tag">APP // ANIMES E MANGÁS</div>
       <h3>Proxy</h3>
       <p>Rastreador e leitor de animes e mangás com visual urbano de anime, mascote que fala e reage, perfil com foto e banner, rede de amigos e login por e-mail ou Google. Um só código rodando no PC, no celular e na web.</p>
       <div class="pj-stack"><span>FLUTTER</span><span>FIREBASE</span><span>WINDOWS</span><span>ANDROID</span><span>IOS</span><span>WEB</span></div>
     </article>
     <article class="pj grande" role="listitem" style="--c:var(--pink)">
-      <div class="pj-arte pj-foto"><img src="img/proj-maidme.jpg" alt="Janela do Maid Me com a assistente Mika em estilo anime" loading="lazy" style="object-position:center 18%"></div>
+      <div class="pj-arte sim mk mk-maid"><div class="mk-grade"></div><div class="mk-chat"><p class="eu">Mika, abre o Spotify</p><p class="ela">Abrindo! Quer aquela playlist de sempre?</p><span class="onda"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="mk-jan alta"><div class="mk-bar"><i></i><i></i><i></i><em>maid me</em></div><img src="img/proj-maidme.jpg" alt="Janela do Maid Me com a assistente Mika em estilo anime" loading="lazy"></div></div>
       <div class="pj-tag">IA // ASSISTENTE DE VOZ</div>
       <h3>Maid Me</h3>
       <p>Monte sua própria assistente: escolha nome, personalidade e voz, converse pelo microfone e deixe ela mexer no PC por você. Funciona com várias IAs, tem voz grátis, avatar de VTuber e um app com cara de aplicativo de verdade.</p>
@@ -667,23 +802,24 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
       <a class="ex" href="https://github.com/Witthene/maid-me" target="_blank" rel="noopener">VER NO GITHUB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </article>
     <article class="pj grande" role="listitem" style="--c:var(--g)">
-      <div class="pj-arte" aria-hidden="true" style="display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#1f3a1a,#0b0b0b 70%)"><div style="background:#fff;color:#0f172a;border-radius:18px;padding:18px 24px;font:700 1.1rem/1.4 'Space Grotesk',sans-serif;box-shadow:0 10px 30px #0008;text-align:center"><span style="font-size:2.4rem">🌻</span><br>Girassol<br><small style="font-weight:500;color:#475569">Água: pouca · Sol: pleno · Não é venenosa</small></div></div>
+      <div class="pj-arte sim sim-planta" aria-hidden="true"><div class="pl-luz"></div><div class="pl-mira"><i></i><i></i><i></i><i></i><svg viewBox="0 0 64 64"><g fill="#facc15"><ellipse cx="32" cy="14" rx="6" ry="11"/><ellipse cx="32" cy="50" rx="6" ry="11"/><ellipse cx="14" cy="32" rx="11" ry="6"/><ellipse cx="50" cy="32" rx="11" ry="6"/><ellipse cx="19" cy="19" rx="6" ry="11" transform="rotate(-45 19 19)"/><ellipse cx="45" cy="45" rx="6" ry="11" transform="rotate(-45 45 45)"/><ellipse cx="45" cy="19" rx="6" ry="11" transform="rotate(45 45 19)"/><ellipse cx="19" cy="45" rx="6" ry="11" transform="rotate(45 19 45)"/></g><circle cx="32" cy="32" r="11" fill="#78350f"/></svg><b>PLANTA DETECTADA · 97%</b></div><div class="pl-cel"><div class="pl-tela"><small>ENCONTREI!</small><h4>Girassol</h4><em>Helianthus annuus</em><div class="pl-chips"><span>💧 Pouca água</span><span>☀️ Sol pleno</span><span class="ok">✔ Não é venenosa</span></div><div class="pl-btn">🔊 OUVIR</div></div></div></div>
       <div class="pj-tag">APP // PLANTAS PARA IDOSOS</div>
       <h3>Que Planta É Essa?</h3>
       <p>Aponte a câmera pra uma planta e o app diz o nome, como cuidar, se é venenosa e uma curiosidade, tudo em letra grande e falado em voz alta. Feito pra quem não se dá bem com tecnologia.</p>
       <div class="pj-stack"><span>FLUTTER</span><span>IA</span><span>ANDROID</span><span>ACESSIBILIDADE</span></div>
       <a class="ex" href="https://github.com/Witthene/que-planta-e-essa" target="_blank" rel="noopener">VER NO GITHUB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </article>
+
     <div class="lab-t" role="presentation">// LABORATÓRIO <span>projetos por diversão</span></div>
     <article class="pj" role="listitem" style="--c:var(--g)">
-      <div class="pj-arte sim sim-capri" aria-hidden="true"><div class="mc-ceu"></div><div class="mc-chao"></div><div class="mc-balao"><b>Capri</b>Bora explorar aquela caverna? Eu vou na frente!<span class="onda"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+      <div class="pj-arte sim sim-capri" aria-hidden="true"><div class="mc-ceu"></div><div class="mc-nuvem"></div><div class="mc-nuvem n2"></div><div class="mc-morro"></div><div class="mc-chao"></div><div class="mc-capri"><span class="cab"></span><span class="corpo"></span></div><div class="mc-balao"><b>Capri</b>Bora explorar aquela caverna? Eu vou na frente!<span class="onda"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
       <div class="pj-tag">MOD // MINECRAFT</div>
       <h3>Capri em português</h3>
       <p>Tradução completa de um mod de Minecraft pro português e uma ponte local que faz a personagem responder com voz própria, gerada por IA.</p>
       <div class="pj-stack"><span>TRADUÇÃO</span><span>IA</span><span>VOZ</span></div>
     </article>
     <article class="pj" role="listitem" style="--c:var(--y)">
-      <div class="pj-arte sim sim-bot" aria-hidden="true"><pre><span class="c">&gt; madeira 16</span>
+      <div class="pj-arte sim sim-bot" aria-hidden="true"><div class="term-bar"><i></i><i></i><i></i><span>yuibot — mineflayer</span><b>● ONLINE</b></div><div class="inv"><i class="tr"></i><i class="tr"></i><i class="pd"></i><i></i></div><pre><span class="c">&gt; madeira 16</span>
 [bot] indo até a árvore mais próxima...
 [bot] <span class="g">+16 tronco de carvalho</span>
 <span class="c">&gt; vem</span>
@@ -694,7 +830,7 @@ footer{text-align:center;padding:30px;font-family:'JetBrains Mono';font-size:12p
       <div class="pj-stack"><span>NODE.JS</span><span>MINEFLAYER</span></div>
     </article>
     <article class="pj" role="listitem" style="--c:var(--g)">
-      <div class="pj-arte sim sim-orby" aria-hidden="true"><div class="estrelas-bg"></div><div class="planeta"><div class="casa"></div><div class="arvore"></div></div><div class="orbita"><div class="boneco"></div></div></div>
+      <div class="pj-arte sim sim-orby" aria-hidden="true"><div class="estrelas-bg"></div><div class="estrelas-bg e2"></div><div class="atmos"></div><div class="anel"></div><div class="lua"></div><div class="planeta"><div class="casa"></div><div class="arvore"></div></div><div class="orbita"><div class="boneco"></div></div></div>
       <div class="pj-tag">JOGO // EM CONSTRUÇÃO</div>
       <h3>Orby</h3>
       <p>Rede social em 3D com mini-planetas, gravidade própria e voz por proximidade, no estilo aconchegante de Animal Crossing.</p>
@@ -1093,5 +1229,31 @@ const _fala=fala;fala=(t,ms)=>{if(!bot.classList.contains('fora'))_fala(t,ms)};
 bot.addEventListener('click',()=>fala(aleat[Math.floor(Math.random()*aleat.length)]));
 setTimeout(()=>fala('Oi! Eu sou o Lorinho, o assistente do Proxy.'),sessionStorage.getItem('viu')?3000:1200);
 </script>
-</body>
+<dialog id="caso" aria-labelledby="caso-t"><button class="cs-x" aria-label="Fechar">✕</button><div class="cs-midia"></div><div class="cs-txt"><div class="pj-tag cs-tag"></div><h3 id="caso-t"></h3><p class="cs-res"></p><div class="cs-blocos"></div><div class="pj-stack cs-stack"></div><div class="cs-links"></div></div></dialog>
+<script>
+(()=>{
+const C={
+'Barbearia Barbeirinho':{midia:['img/proj-barbeirinho-pagina.jpg|rola','img/proj-barbeirinho-cel.jpg|cel'],res:'Site sob medida pra uma barbearia de verdade, feito a partir de um questionário respondido pelo dono e com as fotos reais do salão.',b:[['O desafio','A barbearia vivia só de Instagram e WhatsApp. O dono queria mostrar o ambiente, os preços e os planos num lugar só, e poder atualizar sem depender de ninguém.'],['O que eu fiz','Topo com carrossel de fotos do ambiente, serviços, tabela de preços, planos de assinatura, galeria, antes e depois, avaliações, perguntas frequentes e botões de agendamento. As fotos do cliente foram tratadas e ampliadas com IA.'],['Painel do dono','Um painel próprio em português, protegido por senha, onde o dono troca preços, promoção e fotos pelo celular. As mudanças vão pro ar sozinhas.']],stack:['HTML','CSS','JS','CLOUDFLARE WORKERS','GITHUB PAGES'],links:[['VER O SITE','https://witthene.github.io/barberinho-demo/']]},
+'Proxy':{midia:['img/proj-proxy.jpg'],res:'Rastreador e leitor de animes e mangás com um só código rodando no PC, no celular e na web.',b:[['A ideia','Juntar num app só a lista do que você assiste e lê, com uma cara de anime urbano em vez de planilha.'],['O que tem','Biblioteca com filtros, leitor, mascote que fala e reage, perfil com foto e banner, rede de amigos e login por e-mail ou Google.']],stack:['FLUTTER','FIREBASE','WINDOWS','ANDROID','IOS','WEB'],links:[]},
+'Maid Me':{midia:['img/proj-maidme.jpg|alta'],res:'Assistente de voz pra PC que cada pessoa monta do seu jeito.',b:[['A ideia','Uma assistente que você conversa pelo microfone e que realmente mexe no computador: abre programas, procura arquivos, resolve tarefas.'],['O que tem','Escolha de nome, personalidade e voz, suporte a várias IAs, voz grátis, avatar de VTuber e uma janela com cara de aplicativo de verdade.']],stack:['PYTHON','IA','VOZ','WINDOWS','LINUX'],links:[['VER NO GITHUB','https://github.com/Witthene/maid-me']]},
+'Que Planta É Essa?':{midia:[],res:'App Android pra idosos descobrirem qual é a planta só apontando a câmera.',b:[['O desafio','Apps de plantas costumam ter letra miúda, menus confusos e anúncios. O público aqui é quem não se dá bem com tecnologia.'],['O que eu fiz','A câmera percebe sozinha quando tem uma planta nítida e tira a foto, sem botão. O resultado mostra nome popular, rega, sol, se é venenosa e uma curiosidade, tudo em letra grande e lido em voz alta. Quando não tem certeza da espécie, fala só o tipo, em vez de chutar.']],stack:['FLUTTER','IA','ANDROID','ACESSIBILIDADE'],links:[['VER NO GITHUB','https://github.com/Witthene/que-planta-e-essa'],['BAIXAR O APK','https://github.com/Witthene/que-planta-e-essa/releases/latest']]}
+};
+const d=document.getElementById('caso'),$=s=>d.querySelector(s);
+document.querySelectorAll('#projetos .pj').forEach(pj=>{
+  const k=pj.querySelector('h3').textContent.trim(),c=C[k]; if(!c)return;
+  pj.classList.add('tem-caso');pj.tabIndex=0;pj.setAttribute('aria-label',k+'. Ver estudo de caso');
+  const abrir=e=>{if(e.target.closest('a'))return;if(e.type=='keydown'&&e.key!='Enter'&&e.key!=' ')return;e.preventDefault();
+    $('.cs-tag').textContent=pj.querySelector('.pj-tag').textContent;$('#caso-t').textContent=k;$('.cs-res').textContent=c.res;
+    const m=$('.cs-midia');m.innerHTML='';
+    if(c.midia.length)c.midia.forEach(s=>{const[src,tipo]=s.split('|');const w=document.createElement('div');w.className='cs-img '+(tipo||'');w.innerHTML='<img alt="" src="'+src+'">';m.append(w)});
+    else m.append(pj.querySelector('.pj-arte').cloneNode(true));
+    $('.cs-blocos').innerHTML=c.b.map(([h,p])=>'<div><b>'+h+'</b><p>'+p+'</p></div>').join('');
+    $('.cs-stack').innerHTML=c.stack.map(s=>'<span>'+s+'</span>').join('');
+    $('.cs-links').innerHTML=c.links.map(([n,u])=>'<a class="btn p" target="_blank" rel="noopener" href="'+u+'">'+n+'</a>').join('');
+    d.showModal();d.scrollTop=0};
+  pj.addEventListener('click',abrir);pj.addEventListener('keydown',abrir);
+});
+$('.cs-x').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d)d.close()});
+})();
+</script></body>
 </html>
